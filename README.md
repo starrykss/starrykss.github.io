@@ -6,7 +6,7 @@
   </a>
 
   <h1>JEKYLL YAT THEME</h1>
-
+ 
 </div>
 
 <h4 align="center">
