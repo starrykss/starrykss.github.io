@@ -2,7 +2,7 @@
 layout: post
 title:  "깃허브 블로그 시작!"
 date:   2023-04-14 20:14:27 +0900
-categories: Daily Life
+categories: DailyLife
 ---
 
 미루고 미뤄왔던 나만의 깃허브 홈페이지를 이제서야 만들어본다.
