@@ -153,12 +153,12 @@ yat:
 #   - tags.html
 #   - about.md
 
-# Page default value
-# defaults:
-#   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
-#     banner: "Your image url"
+Page default value
+defaults:
+  home:
+    heading: "개발자를 꿈꾸는 starrykss의 블로그 👨🏻‍💻"
+    subheading: "여러가지 이야기"
+    banner: "https://cdn.pixabay.com/photo/2022/11/25/13/12/building-7616202_960_720.jpg"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
