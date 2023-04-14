@@ -24,7 +24,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: starrykss's GitHub blog
+title: starrykss's GitHub Blog
 email: kss34891@gmail.com
 author: starrykss
 
