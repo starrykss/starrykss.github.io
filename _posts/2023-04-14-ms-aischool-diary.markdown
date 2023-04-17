@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[10일차] MS AI School 2기 회고록"
-date:   2023-04-14 21:18:30 +0900
+date:   2023-04-15 21:18:30 +0900
 categories: Retrospection
 ---
 
