@@ -2,7 +2,7 @@
 layout: post
 title:  "[10일차] MS AI School 2기 회고록"
 date:   2023-04-14 21:18:30 +0900
-categories: BootCamp MSAISchool Diary Microsoft Azure 회고
+categories: Retrospection
 ---
 
 MS AI School 2기에 합격하여 어느덧 교육을 받은지 10일이 되었다.
