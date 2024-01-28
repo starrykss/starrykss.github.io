@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Simple Drawing App</title>
+    <link rel="stylesheet" href="css/drawing.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="toolbar">
+        <h1>🖌️ A Simple Drawing App</h1>
+        <div>
+          <label for="stroke">Color</label>
+          <input type="color" id="stroke" value="#000" />
+          <label for="lWidth">Thickness</label>
+          <input type="number" id="lWidth" min="1" max="50" value="2" />
+        </div>
+        <button id="reset">Erase</button>
+      </div>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <script src="js/drawing.js"></script>
+  </body>
+</html>
