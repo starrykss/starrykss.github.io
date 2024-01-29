@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Consolas, "Malgun Gothic";
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to left, #f0df9e, #d1b5bf);
+}
+
+header {
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form label {
+  display: none;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  margin: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button,
+input {
+  border: #ccc solid 2px;
+  border-radius: 6px;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#todo-list {
+  min-width: 30%;
+  list-style: square;
+}
+
+#todo-list li::marker {
+  content: "✔️ ";
+}
+
+#today-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.inner-time {
+  background-color: rgba(255, 252, 252, 0.4);
+  padding: 8px 12px;
+  border-radius: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* todo 항목 */
+.todo {
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo .todo-content {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px dotted #ffffff;
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgba(255, 246, 179, 0.5);
+  border-radius: 10px;
+}
+
+.todo button {
+  padding: 0.5rem;
+  margin-right: 0.2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: red;
+  opacity: 0.5;
+}
