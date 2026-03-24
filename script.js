@@ -33,7 +33,6 @@ const elements = {
   metaDescription: document.querySelector('meta[name="description"]'),
   nav: document.querySelectorAll('.nav a'),
   heroEyebrow: document.getElementById('hero-eyebrow'),
-  heroMiniIntro: document.getElementById('hero-mini-intro'),
   heroDescription: document.getElementById('hero-description'),
   heroActions: document.querySelectorAll('.hero-actions a'),
   aboutKicker: document.getElementById('about-kicker'),
@@ -114,7 +113,7 @@ function buildOverview(items) {
 }
 
 function buildTimeline(items) {
-  elements.timeline.innerHTML = items.map(([period, title, role, description]) => `<article class="timeline-item"><span class="timeline-period">${period}</span><h3>${title}</h3><p class="timeline-role">${role}</p><p class="muted">${description}</p></article>`).join('');
+  elements.timeline.innerHTML = items.map(([period, title, role, description]) => `<article class="timeline-item"><span class="timeline-period">${period}</span><h3>${title}</h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`).join('');
 }
 
 function renderTypedText(text) {
@@ -157,7 +156,6 @@ function setLanguage(lang) {
   elements.metaDescription.setAttribute('content', t.metaDescription);
   elements.nav.forEach((node, index) => { node.textContent = t.nav[index]; });
   elements.heroEyebrow.textContent = t.heroEyebrow;
-  elements.heroMiniIntro.textContent = t.heroMiniIntro;
   elements.heroDescription.textContent = t.heroDescription;
   elements.heroActions.forEach((node, index) => { node.textContent = t.heroActions[index]; });
   elements.aboutKicker.textContent = t.aboutKicker;

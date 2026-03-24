@@ -30,6 +30,8 @@
   --text: #162018;
   --muted: #566156;
   --primary: #2161d6;
+  --course-completed-date-color: #7c3aed;
+  --timeline-company-color: #2161d6;
   --skill-empty: #d0d7cf;
   --ribbon-bg: rgba(33, 138, 78, 0.92);
   --button-primary-text: #ffffff;
@@ -65,6 +67,8 @@ html[data-theme='dark'] {
   --text: #eef5ef;
   --muted: #a8b6aa;
   --primary: #7fb0ff;
+  --course-completed-date-color: #4ade80;
+  --timeline-company-color: #4ade80;
   --skill-empty: #334238;
   --ribbon-bg: rgba(59, 160, 106, 0.92);
   --button-primary-text: #ffffff;
@@ -522,6 +526,10 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
 }
 
+.timeline-period {
+  color: var(--course-completed-date-color);
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -540,7 +548,7 @@ img { display: block; max-width: 100%; }
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.timeline-item h3 { margin: 14px 0 8px; font-size: 1.24rem; }
+.timeline-item h3 { margin: 14px 0 8px; font-size: 1.24rem; color: var(--timeline-company-color); }
 .timeline-role { margin: 0 0 8px; font-weight: 700; }
 
 .timeline-item:hover {
@@ -705,12 +713,14 @@ img { display: block; max-width: 100%; }
 .course-completed-date {
   display: inline-flex;
   align-items: center;
+  justify-self: end;
+  align-self: start;
   width: fit-content;
   padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--surface-chip);
-  color: var(--primary);
+  color: var(--course-completed-date-color);
   font-size: 0.8rem;
   font-weight: 800;
 }
