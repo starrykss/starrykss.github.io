@@ -7,14 +7,14 @@ export const techStackItems = [
   { name: 'React.js', proficiency: 90, isMain: true, icon: 'RE' },
   { name: 'React Native', proficiency: 100, isMain: true, icon: 'RN' },
   { name: 'Flutter', proficiency: 100, isMain: true, icon: 'FL' },
-  { name: 'Redux', proficiency: 80, isMain: true, icon: 'RX' },
+  { name: 'Redux', proficiency: 80, isMain: false, icon: 'RX' },
   { name: 'React Query', proficiency: 80, isMain: false, icon: 'RQ' },
   { name: 'React Router', proficiency: 80, isMain: false, icon: 'RR' },
   { name: 'Styled Components', proficiency: 90, isMain: false, icon: 'SC' },
   { name: 'Tailwind CSS', proficiency: 100, isMain: true, icon: 'TW' },
   { name: 'Vite', proficiency: 90, isMain: false, icon: 'VT' },
   { name: 'Node.js', proficiency: 90, isMain: false, icon: 'NO' },
-  { name: 'Python', proficiency: 90, isMain: false, icon: 'PY' },
+  { name: 'Python', proficiency: 90, isMain: true, icon: 'PY' },
   { name: 'C++', proficiency: 90, isMain: false, icon: 'C+' },
   { name: 'PostgreSQL', proficiency: 80, isMain: false, icon: 'PG' },
   { name: 'MongoDB', proficiency: 90, isMain: false, icon: 'MG' },
@@ -43,7 +43,7 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_07.do',
   },
   {
-    title: { ko: '데이터분석준전문가', en: 'Advanced Data Analytics Semi-Professional', de: 'Advanced Data Analytics Semi-Professional' },
+    title: { ko: '데이터분석준전문가 (ADsP)', en: 'Advanced Data Analytics Semi-Professional', de: 'Advanced Data Analytics Semi-Professional' },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'ADsP-038010724',
     issueDate: '2023.09.15',
@@ -51,7 +51,7 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_06.do',
   },
   {
-    title: { ko: '데이터아키텍처준전문가', en: 'Data Architecture Semi-Professional', de: 'Data Architecture Semi-Professional' },
+    title: { ko: '데이터아키텍처준전문가 (DAsP)', en: 'Data Architecture Semi-Professional', de: 'Data Architecture Semi-Professional' },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'DAsP-000000000',
     issueDate: '2024.11.29',
@@ -67,7 +67,7 @@ export const certificateItems = [
     url: 'https://license.kpc.or.kr/nasec/qlfint/qlfint/selectGtqinfomg.do',
   },
   {
-    title: { ko: 'AZ-900', en: 'Microsoft Certified: Azure Fundamentals', de: 'Microsoft Certified: Azure Fundamentals' },
+    title: { ko: 'Microsoft Certified: Azure Fundamentals (AZ-900)', en: 'Microsoft Certified: Azure Fundamentals', de: 'Microsoft Certified: Azure Fundamentals' },
     issuer: 'Microsoft',
     issueNumber: 'BB058690C8BCCD6',
     issueDate: '2023.09.02',
@@ -75,7 +75,7 @@ export const certificateItems = [
     url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/?practice-assessment-type=certification',
   },
   {
-    title: { ko: 'DP-900', en: 'Microsoft Certified: Azure Data Fundamentals', de: 'Microsoft Certified: Azure Data Fundamentals' },
+    title: { ko: 'Microsoft Certified: Azure Data Fundamentals (DP-900)', en: 'Microsoft Certified: Azure Data Fundamentals', de: 'Microsoft Certified: Azure Data Fundamentals' },
     issuer: 'Microsoft',
     issueNumber: '67FD8DA0DF079ADA',
     issueDate: '2023.08.12',
@@ -83,7 +83,7 @@ export const certificateItems = [
     url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/?practice-assessment-type=certification',
   },
   {
-    title: { ko: 'AI-900', en: 'Microsoft Certified: Azure AI Fundamentals', de: 'Microsoft Certified: Azure AI Fundamentals' },
+    title: { ko: 'Microsoft Certified: Azure AI Fundamentals (AI-900)', en: 'Microsoft Certified: Azure AI Fundamentals', de: 'Microsoft Certified: Azure AI Fundamentals' },
     issuer: 'Microsoft',
     issueNumber: '848F816BEEAA7DD',
     issueDate: '2023.07.24',
@@ -185,7 +185,7 @@ export const courseItems = [
     description: {
       ko: '약 95시간 동안 React.js, Redux, Next.js, TypeScript, Styled Components 등을 활용해 27개의 프로젝트를 제작한 부트캠프입니다.',
       en: 'A 95-hour bootcamp covering React.js, Redux, Next.js, TypeScript, and Styled Components through 27 projects.',
-      de: 'Ein 95-stuendiges Bootcamp zu React.js, Redux, Next.js, TypeScript und Styled Components mit 27 Projekten.',
+      de: 'Ein 95-stündiges Bootcamp zu React.js, Redux, Next.js, TypeScript und Styled Components mit 27 Projekten.',
     },
     url: 'https://www.udemy.com/certificate/UC-56d6d7d9-24a7-49e8-b497-4aa62462da1c/',
   },
@@ -201,7 +201,7 @@ export const courseItems = [
     description: {
       ko: '약 69시간 동안 React.js, Redux, Next.js를 학습하고 여러 미니 프로젝트를 진행한 강의입니다.',
       en: 'A 69-hour course focused on React.js, Redux, and Next.js with multiple mini projects.',
-      de: 'Ein 69-stuendiger Kurs zu React.js, Redux und Next.js mit mehreren Mini-Projekten.',
+      de: 'Ein 69-stündiger Kurs zu React.js, Redux und Next.js mit mehreren Mini-Projekten.',
     },
     url: 'https://www.udemy.com/certificate/UC-58221581-c13c-44c3-99ad-6ce51fe8cb1d/',
   },
@@ -217,7 +217,7 @@ export const courseItems = [
     description: {
       ko: '약 62시간 동안 React.js, Node.js 등 프론트엔드와 백엔드 기술을 학습하고 미니 프로젝트를 진행한 부트캠프입니다.',
       en: 'A 62-hour bootcamp covering frontend and backend technologies such as React.js and Node.js with mini projects.',
-      de: 'Ein 62-stuendiges Bootcamp zu Frontend- und Backend-Technologien wie React.js und Node.js mit Mini-Projekten.',
+      de: 'Ein 62-stündiges Bootcamp zu Frontend- und Backend-Technologien wie React.js und Node.js mit Mini-Projekten.',
     },
     url: 'https://www.udemy.com/certificate/UC-e16625ee-336e-4b2d-b08b-60965ef6eb78/',
   },
@@ -233,7 +233,7 @@ export const courseItems = [
     description: {
       ko: '약 29시간 동안 React Native를 기반으로 크로스 플랫폼 모바일 앱 개발 흐름, 네이티브 기능 연동, 화면 구성, 상태 관리 등을 학습한 과정입니다.',
       en: 'A 29-hour course focused on cross-platform mobile app development with React Native, including UI composition, state management, and native integration.',
-      de: 'Ein 29-stuendiger Kurs zu plattformuebergreifender mobiler App-Entwicklung mit React Native, einschliesslich UI-Aufbau, State-Management und nativer Integration.',
+      de: 'Ein 29-stündiger Kurs zu plattformübergreifender mobiler App-Entwicklung mit React Native, einschließlich UI-Aufbau, State-Management und nativer Integration.',
     },
     url: 'https://www.udemy.com/certificate/UC-a14befd8-96a6-4443-9463-cbbc2b7df18d/',
   },
@@ -249,7 +249,7 @@ export const courseItems = [
     description: {
       ko: '약 30시간 동안 Flutter와 Dart를 활용해 멀티 플랫폼 앱 구조, 위젯 기반 UI 설계, 상태 관리, 앱 실행 흐름을 학습한 과정입니다.',
       en: 'A 30-hour course covering Flutter and Dart for multi-platform app structure, widget-based UI design, state management, and application flow.',
-      de: 'Ein 30-stuendiger Kurs zu Flutter und Dart mit Fokus auf Multi-Plattform-App-Struktur, widgetbasiertes UI-Design, State-Management und App-Ablauf.',
+      de: 'Ein 30-stündiger Kurs zu Flutter und Dart mit Fokus auf Multi-Plattform-App-Struktur, widgetbasiertes UI-Design, State-Management und App-Ablauf.',
     },
     url: 'https://www.udemy.com/certificate/UC-6807b4fc-3f9a-453d-90c9-9d27291cba17/',
   },
@@ -265,7 +265,7 @@ export const courseItems = [
     description: {
       ko: 'AI, 디지털, 데이터 중심 교육 커리큘럼을 통해 프로젝트를 수행하며 실무 감각과 인공지능 관련 역량을 쌓은 과정입니다.',
       en: 'A training program focused on AI, digital, and data projects to build practical skills and AI foundations.',
-      de: 'Ein Trainingsprogramm zu AI, Digital und Data, das praktische Erfahrung und Grundlagen in kuenstlicher Intelligenz vermittelte.',
+      de: 'Ein Trainingsprogramm zu AI, Digital und Data, das praktische Erfahrung und Grundlagen in künstlicher Intelligenz vermittelte.',
     },
     url: 'https://github.com/starrykss/BootCamp_MSAISchool2nd',
   },
@@ -273,7 +273,7 @@ export const courseItems = [
     title: {
       ko: '인공지능을 활용한 챗봇 구축 기획/설계/구현',
       en: 'Planning, Designing, and Implementing a Chatbot Using Artificial Intelligence',
-      de: 'Planung, Design und Umsetzung eines Chatbots mit kuenstlicher Intelligenz',
+      de: 'Planung, Design und Umsetzung eines Chatbots mit künstlicher Intelligenz',
     },
     provider: 'Comento',
     period: '2022.05.08 - 2022.06.05',
@@ -281,7 +281,7 @@ export const courseItems = [
     description: {
       ko: '약 5주 동안 현업 개발자 멘토와 함께 Google Dialogflow 기반 챗봇 서비스를 기획, 설계, 구현한 과정입니다.',
       en: 'A 5-week training focused on planning, designing, and building a chatbot service with Google Dialogflow.',
-      de: 'Ein 5-woechiger Kurs zur Planung, Gestaltung und Umsetzung eines Chatbot-Services mit Google Dialogflow.',
+      de: 'Ein 5-wöchiger Kurs zur Planung, Gestaltung und Umsetzung eines Chatbot-Services mit Google Dialogflow.',
     },
     url: 'https://github.com/starrykss/Dialogflow_CondoReservationChatbotProgram',
   },
