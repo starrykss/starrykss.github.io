@@ -545,6 +545,7 @@ img { display: block; max-width: 100%; }
   border-radius: 22px;
   border: 1px solid var(--line-soft);
   background: var(--surface-strong);
+  cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
@@ -574,6 +575,7 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface-soft);
+  cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -635,6 +637,7 @@ img { display: block; max-width: 100%; }
 }
 
 .certificate-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -674,6 +677,21 @@ img { display: block; max-width: 100%; }
 .certificate-heading { display: grid; gap: 8px; }
 .certificate-title-local { color: var(--primary); font-size: 1rem; font-weight: 700; }
 .certificate-issuer { color: var(--muted); font-size: 0.84rem; }
+.certificate-issued-date {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-chip);
+  color: var(--course-completed-date-color);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
 
 .course-card {
   display: grid;
@@ -1020,6 +1038,10 @@ img { display: block; max-width: 100%; }
   }
 
   .certificate-body { padding: 0 18px 18px; }
+  .certificate-issued-date {
+    top: 14px;
+    left: 14px;
+  }
 
   .floating-tools {
     right: 14px;

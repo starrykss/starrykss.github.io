@@ -89,7 +89,7 @@ function buildTechStack(mainLabel) {
 
 function buildCertificates(lang) {
   elements.certGrid.innerHTML = certificateItems
-    .map((item) => `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`)
+    .map((item) => `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date">${item.issueDate}</span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`)
     .join('');
 }
 
