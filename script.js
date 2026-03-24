@@ -142,8 +142,6 @@ function startTyping(fullText, lang) {
       window.setTimeout(step, 80);
       return;
     }
-
-    cursor.style.opacity = '0';
   }
 
   step();
