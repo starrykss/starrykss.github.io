@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STARRYKSS</title>
+    <meta
+      name="description"
+      content="Software Engineer Sangsun Kim의 GitHub Pages용 포트폴리오 홈페이지"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#stack">Tech Stack</a>
+          <a href="#certificate">Certificate</a>
+          <a href="#courses">Completion</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero card card-accent" id="home">
+          <div class="hero-top-box">
+            <div class="hero-top">
+              <div class="hero-media">
+                <div class="avatar-ring">
+                  <img
+                    src="./assets/images/profile_bern.jpg"
+                    alt="Sangsun Kim profile"
+                    class="avatar"
+                  />
+                </div>
+              </div>
+              <div class="hero-copy">
+                <p class="eyebrow" id="hero-eyebrow">
+                  Software Engineer · AI Focus · Seoul
+                </p>
+                <h1 class="hero-title">
+                  <span id="typed-text"></span><span class="cursor" id="cursor"></span>
+                </h1>
+                <div class="hero-actions hero-actions-top">
+                  <a class="button button-primary" href="#about">About</a>
+                  <a class="button" href="#highlights">Portfolio</a>
+                  <a class="button" href="#contact">Contact</a>
+                </div>
+                <p class="hero-mini-intro" id="hero-mini-intro"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-bottom-box">
+            <div class="hero-bottom">
+              <div class="hero-bottom-main">
+                <p class="hero-description" id="hero-description"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid-section" id="about">
+          <article class="card profile-card">
+            <p class="section-kicker" id="about-kicker">Profile</p>
+            <h2 id="about-title">About Me</h2>
+            <p class="profile-role" id="profile-role">Software Engineer</p>
+            <p class="profile-name" id="profile-name">
+              Sangsun Kim · @starrykss
+            </p>
+            <p class="muted" id="profile-description"></p>
+          </article>
+
+          <article class="card intro-card">
+            <p class="section-kicker" id="overview-kicker">Overview</p>
+            <h2 id="overview-title">Current Focus</h2>
+            <div class="intro-points" id="overview-items"></div>
+          </article>
+        </section>
+
+        <section class="card" id="experience">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" id="experience-kicker">Timeline</p>
+              <h2 id="experience-title">Experience & Education</h2>
+            </div>
+            <p class="muted" id="experience-summary"></p>
+          </div>
+
+          <div class="timeline" id="timeline"></div>
+        </section>
+
+        <section class="card" id="stack">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" id="stack-kicker">Capabilities</p>
+              <h2 id="stack-title">Tech Stack</h2>
+            </div>
+          </div>
+          <div class="tech-grid" id="tech-stack-grid"></div>
+        </section>
+
+        <section class="card" id="certificate">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" id="cert-kicker">Credentials</p>
+              <h2 id="cert-title">Certificate</h2>
+            </div>
+          </div>
+          <div class="certificate-grid" id="certificate-grid"></div>
+        </section>
+
+        <section class="card" id="courses">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" id="course-kicker">Courses</p>
+              <h2 id="course-title">Completion</h2>
+            </div>
+          </div>
+          <div class="course-grid" id="course-grid"></div>
+        </section>
+
+        <section class="grid-section" id="highlights">
+          <article class="card link-card">
+            <p class="section-kicker" data-highlight-index="0">Section</p>
+            <h2 data-highlight-index="1">Portfolio</h2>
+            <p class="muted" data-highlight-index="2"></p>
+            <a
+              class="text-link"
+              href="https://github.com/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span data-highlight-index="3">Open GitHub Profile</span>
+            </a>
+          </article>
+
+          <article class="card link-card">
+            <p class="section-kicker" data-highlight-index="4">Section</p>
+            <h2 data-highlight-index="5">Post</h2>
+            <p class="muted" data-highlight-index="6"></p>
+            <a
+              class="text-link"
+              href="https://dev-astra.tistory.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span data-highlight-index="7">Visit Blog</span>
+            </a>
+          </article>
+        </section>
+
+        <section class="card" id="contact">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker" id="contact-kicker">Get In Touch</p>
+              <h2 id="contact-title">Contact</h2>
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <a class="contact-item" href="mailto:dev.snykim@gmail.com">
+              <span class="contact-label">Email</span>
+              <strong>dev.snykim@gmail.com</strong>
+            </a>
+            <a
+              class="contact-item"
+              href="https://github.com/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="contact-label">GitHub</span>
+              <strong>github.com/starrykss</strong>
+            </a>
+            <a
+              class="contact-item"
+              href="https://www.linkedin.com/in/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="contact-label">LinkedIn</span>
+              <strong>linkedin.com/in/starrykss</strong>
+            </a>
+            <a
+              class="contact-item"
+              href="https://www.acmicpc.net/user/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="contact-label">Baekjoon</span>
+              <strong>acmicpc.net/user/starrykss</strong>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="floating-tools">
+      <button
+        type="button"
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Toggle theme"
+      >
+        <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <div class="floating-language" id="floating-language">
+        <button
+          type="button"
+          class="floating-language-trigger"
+          id="floating-language-trigger"
+          aria-expanded="false"
+          aria-controls="floating-language-panel"
+          aria-label="Open language menu"
+        >
+          <span class="floating-language-trigger-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path
+                d="M12 2.75a9.25 9.25 0 1 0 0 18.5a9.25 9.25 0 0 0 0-18.5Zm6.84 8.25h-3.07a14.4 14.4 0 0 0-1.45-5.04A7.78 7.78 0 0 1 18.84 11Zm-6.09-5.91c.86 1.05 1.59 3.05 1.83 5.91h-5.16c.24-2.86.97-4.86 1.83-5.91c.23-.28.45-.46.67-.46s.44.18.67.46ZM9.68 5.96A14.4 14.4 0 0 0 8.23 11H5.16a7.78 7.78 0 0 1 4.52-5.04ZM4.75 12.5h3.33c.05 1.93.38 3.75.96 5.26A7.78 7.78 0 0 1 4.75 12.5Zm6.58 6.41c-.86-1.05-1.59-3.05-1.83-5.91h5.16c-.24 2.86-.97 4.86-1.83 5.91c-.23.28-.45.46-.67.46s-.44-.18-.67-.46Zm2.99-1.15c.58-1.51.91-3.33.96-5.26h3.33a7.78 7.78 0 0 1-4.29 5.26Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="floating-language-panel"
+          id="floating-language-panel"
+          aria-label="Language switcher"
+        >
+          <button type="button" class="floating-language-option" data-lang="ko">
+            <span class="flag-badge">🇰🇷</span>
+            <span>한국어</span>
+          </button>
+          <button type="button" class="floating-language-option" data-lang="en">
+            <span class="flag-badge">🇺🇸</span>
+            <span>English</span>
+          </button>
+          <button type="button" class="floating-language-option" data-lang="de">
+            <span class="flag-badge">🇩🇪</span>
+            <span>Deutsch</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
