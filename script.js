@@ -57,6 +57,10 @@ const elements = {
   courseTitle: document.getElementById('course-title'),
   courseGrid: document.getElementById('course-grid'),
   highlightItems: document.querySelectorAll('[data-highlight-index]'),
+  blogKicker: document.getElementById('blog-kicker'),
+  blogTitle: document.getElementById('blog-title'),
+  blogDescription: document.getElementById('blog-description'),
+  blogLinkLabel: document.getElementById('blog-link-label'),
   contactKicker: document.getElementById('contact-kicker'),
   contactTitle: document.getElementById('contact-title'),
 };
@@ -113,7 +117,24 @@ function buildOverview(items) {
 }
 
 function buildTimeline(items) {
-  elements.timeline.innerHTML = items.map(([period, title, role, description]) => `<article class="timeline-item"><span class="timeline-period">${period}</span><h3>${title}</h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`).join('');
+  const companyIcon = `
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M5.75 19.25V6.75c0-.55.45-1 1-1h10.5c.55 0 1 .45 1 1v12.5M4.5 19.25h15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9 8.75h1.5v1.5H9Zm0 3.25h1.5v1.5H9Zm4.5-3.25H15v1.5h-1.5Zm0 3.25H15v1.5h-1.5Z" fill="currentColor"/>
+    </svg>
+  `;
+  const schoolIcon = `
+    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+      <path d="M12 4.5 3 8.75 12 13l7.03-3.32v4.12a.75.75 0 1 0 1.5 0V9L21 8.75 12 4.5Zm-5.5 7.33v3.04c0 .57.32 1.08.83 1.34 3.07 1.57 6.77 1.57 9.84 0 .51-.26.83-.77.83-1.34v-3.04L12 14.96l-5.5-3.13Z" fill="currentColor"/>
+    </svg>
+  `;
+
+  elements.timeline.innerHTML = items.map(([period, title, role, description]) => {
+    const isSchool = /school|university/i.test(title);
+    const icon = isSchool ? schoolIcon : companyIcon;
+
+    return `<article class="timeline-item"><span class="timeline-period">${period}</span><h3 class="timeline-title"><span class="timeline-title-icon">${icon}</span><span>${title}</span></h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`;
+  }).join('');
 }
 
 function renderTypedText(text) {
@@ -178,6 +199,10 @@ function setLanguage(lang) {
   elements.courseTitle.textContent = t.courseTitle;
   buildCourses(lang, t.courseEmpty);
   elements.highlightItems.forEach((node) => { node.textContent = t.highlights[Number(node.dataset.highlightIndex)]; });
+  elements.blogKicker.textContent = t.blogKicker;
+  elements.blogTitle.textContent = t.blogTitle;
+  elements.blogDescription.textContent = t.blogDescription;
+  elements.blogLinkLabel.textContent = t.blogLinkLabel;
   elements.contactKicker.textContent = t.contactKicker;
   elements.contactTitle.textContent = t.contactTitle;
   languageButtons.forEach((button) => { button.classList.toggle('is-active', button.dataset.lang === lang); });
