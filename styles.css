@@ -887,6 +887,7 @@ img { display: block; max-width: 100%; }
 .course-completed-date {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   justify-self: end;
   align-self: start;
   width: fit-content;
@@ -897,6 +898,18 @@ img { display: block; max-width: 100%; }
   color: var(--course-completed-date-color);
   font-size: 0.8rem;
   font-weight: 800;
+}
+
+.course-completed-date-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.course-completed-date-icon svg {
+  width: 14px;
+  height: 14px;
 }
 
 .course-title {

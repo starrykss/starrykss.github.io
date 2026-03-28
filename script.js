@@ -6,7 +6,9 @@ const cursor = document.getElementById('cursor');
 const languageButtons = document.querySelectorAll('[data-lang]');
 const root = document.documentElement;
 const floatingLanguage = document.getElementById('floating-language');
-const floatingLanguageTrigger = document.getElementById('floating-language-trigger');
+const floatingLanguageTrigger = document.getElementById(
+  'floating-language-trigger',
+);
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleIcon = document.getElementById('theme-toggle-icon');
 const topbar = document.querySelector('.topbar');
@@ -24,6 +26,15 @@ const sunIcon = `
   <svg viewBox="0 0 24 24" focusable="false">
     <path
       d="M12 6.25A5.75 5.75 0 1 0 17.75 12A5.76 5.76 0 0 0 12 6.25Zm0-4a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75Zm0 17a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V20a.75.75 0 0 1 .75-.75Zm9.75-8a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1 0-1.5h1.5Zm-17 0a.75.75 0 0 1 0 1.5H3.25a.75.75 0 0 1 0-1.5h1.5Zm12.02-6.27a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 0 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06Zm-11.6 11.6a.75.75 0 0 1 1.06 0l1.06 1.06a.75.75 0 1 1-1.06 1.06l-1.06-1.06a.75.75 0 0 1 0-1.06Zm12.66 2.12a.75.75 0 0 1 0-1.06l1.06-1.06a.75.75 0 1 1 1.06 1.06l-1.06 1.06a.75.75 0 0 1-1.06 0Zm-11.6-11.6a.75.75 0 0 1 0-1.06L6.39 4.98a.75.75 0 1 1 1.06 1.06L6.39 7.1a.75.75 0 0 1-1.06 0Z"
+      fill="currentColor"
+    />
+  </svg>
+`;
+
+const courseCompletedIcon = `
+  <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+    <path
+      d="M7.25 3.75a.75.75 0 0 1 .75.75v1h8v-1a.75.75 0 0 1 1.5 0v1h.75A2.75 2.75 0 0 1 21 9.25v8A2.75 2.75 0 0 1 18.25 20h-12.5A2.75 2.75 0 0 1 3 17.25v-8A2.75 2.75 0 0 1 5.75 6.5h.75v-1a.75.75 0 0 1 .75-.75Zm11.25 6H4.5v7.5c0 .69.56 1.25 1.25 1.25h12.5c.69 0 1.25-.56 1.25-1.25v-7.5Zm-12.75-1.75c-.69 0-1.25.56-1.25 1.25v.25h15v-.25c0-.69-.56-1.25-1.25-1.25h-12.5Z"
       fill="currentColor"
     />
   </svg>
@@ -93,7 +104,10 @@ function buildTechStack(mainLabel) {
 
 function buildCertificates(lang) {
   elements.certGrid.innerHTML = certificateItems
-    .map((item) => `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date">${item.issueDate}</span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`)
+    .map(
+      (item) =>
+        `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date">${item.issueDate}</span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
+    )
     .join('');
 }
 
@@ -103,17 +117,39 @@ function buildCourses(lang, emptyMessage) {
     return;
   }
 
+  const getCompletedTimestamp = (item) => {
+    if (!item.completedDate) {
+      return Number.NEGATIVE_INFINITY;
+    }
+
+    return new Date(item.completedDate.replaceAll('.', '-')).getTime();
+  };
+
+  const getCourseDescription = (item) => {
+    return (
+      item.description?.[lang] ?? item.description?.description?.[lang] ?? ''
+    );
+  };
+
   const sortedCourseItems = [...courseItems].sort((a, b) => {
-    return new Date(b.completedDate.replaceAll('.', '-') ).getTime() - new Date(a.completedDate.replaceAll('.', '-')).getTime();
+    return getCompletedTimestamp(b) - getCompletedTimestamp(a);
   });
 
   elements.courseGrid.innerHTML = sortedCourseItems
-    .map((item) => `<a class="course-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="course-completed-date">${item.completedDate}</span><div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><span class="course-period">${item.period}</span><p class="muted">${item.description[lang]}</p></a>`)
+    .map(
+      (item) =>
+        `<a class="course-card" href="${item.url}" target="_blank" rel="noreferrer">${item.completedDate ? `<span class="course-completed-date"><span class="course-completed-date-icon">${courseCompletedIcon}</span><span>${item.completedDate}</span></span>` : ''}<div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><span class="course-period">${item.period}</span><p class="muted">${getCourseDescription(item)}</p></a>`,
+    )
     .join('');
 }
 
 function buildOverview(items) {
-  elements.overviewItems.innerHTML = items.map(([label, text]) => `<div><span class="label">${label}</span><p>${text}</p></div>`).join('');
+  elements.overviewItems.innerHTML = items
+    .map(
+      ([label, text]) =>
+        `<div><span class="label">${label}</span><p>${text}</p></div>`,
+    )
+    .join('');
 }
 
 function buildTimeline(items) {
@@ -129,21 +165,29 @@ function buildTimeline(items) {
     </svg>
   `;
 
-  elements.timeline.innerHTML = items.map(([period, title, role, description]) => {
-    const isSchool = /school|university/i.test(title);
-    const icon = isSchool ? schoolIcon : companyIcon;
+  elements.timeline.innerHTML = items
+    .map(([period, title, role, description]) => {
+      const isSchool = /school|university/i.test(title);
+      const icon = isSchool ? schoolIcon : companyIcon;
 
-    return `<article class="timeline-item"><span class="timeline-period">${period}</span><h3 class="timeline-title"><span class="timeline-title-icon">${icon}</span><span>${title}</span></h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`;
-  }).join('');
+      return `<article class="timeline-item"><span class="timeline-period">${period}</span><h3 class="timeline-title"><span class="timeline-title-icon">${icon}</span><span>${title}</span></h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`;
+    })
+    .join('');
 }
 
 function renderTypedText(text) {
   if (currentLang === 'ko' && text.includes('김상순')) {
-    typedText.innerHTML = text.replace('김상순', '<span class="rainbow-name">김상순</span>');
+    typedText.innerHTML = text.replace(
+      '김상순',
+      '<span class="rainbow-name">김상순</span>',
+    );
     return;
   }
   if (text.includes('Sangsun Kim')) {
-    typedText.innerHTML = text.replace('Sangsun Kim', '<span class="rainbow-name">Sangsun Kim</span>');
+    typedText.innerHTML = text.replace(
+      'Sangsun Kim',
+      '<span class="rainbow-name">Sangsun Kim</span>',
+    );
     return;
   }
   typedText.textContent = text;
@@ -173,10 +217,14 @@ function setLanguage(lang) {
   currentLang = lang;
   root.lang = lang;
   elements.metaDescription.setAttribute('content', t.metaDescription);
-  elements.nav.forEach((node, index) => { node.textContent = t.nav[index]; });
+  elements.nav.forEach((node, index) => {
+    node.textContent = t.nav[index];
+  });
   elements.heroEyebrow.textContent = t.heroEyebrow;
   elements.heroDescription.textContent = t.heroDescription;
-  elements.heroActions.forEach((node, index) => { node.textContent = t.heroActions[index]; });
+  elements.heroActions.forEach((node, index) => {
+    node.textContent = t.heroActions[index];
+  });
   elements.aboutKicker.textContent = t.aboutKicker;
   elements.aboutTitle.textContent = t.aboutTitle;
   elements.profileRole.textContent = t.profileRole;
@@ -198,14 +246,18 @@ function setLanguage(lang) {
   elements.courseKicker.textContent = t.courseKicker;
   elements.courseTitle.textContent = t.courseTitle;
   buildCourses(lang, t.courseEmpty);
-  elements.highlightItems.forEach((node) => { node.textContent = t.highlights[Number(node.dataset.highlightIndex)]; });
+  elements.highlightItems.forEach((node) => {
+    node.textContent = t.highlights[Number(node.dataset.highlightIndex)];
+  });
   elements.blogKicker.textContent = t.blogKicker;
   elements.blogTitle.textContent = t.blogTitle;
   elements.blogDescription.textContent = t.blogDescription;
   elements.blogLinkLabel.textContent = t.blogLinkLabel;
   elements.contactKicker.textContent = t.contactKicker;
   elements.contactTitle.textContent = t.contactTitle;
-  languageButtons.forEach((button) => { button.classList.toggle('is-active', button.dataset.lang === lang); });
+  languageButtons.forEach((button) => {
+    button.classList.toggle('is-active', button.dataset.lang === lang);
+  });
   if (floatingLanguageTrigger) {
     floatingLanguageTrigger.setAttribute('aria-expanded', 'false');
   }
@@ -223,7 +275,10 @@ function applyTheme(theme) {
     themeToggleIcon.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
   }
   if (themeToggle) {
-    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    themeToggle.setAttribute(
+      'aria-label',
+      theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+    );
   }
   localStorage.setItem('github-home-theme', theme);
 }
