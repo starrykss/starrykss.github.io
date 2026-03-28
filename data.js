@@ -35,7 +35,11 @@ export const techStackItems = [
 
 export const certificateItems = [
   {
-    title: { ko: '빅데이터분석기사', en: 'Big Data Analysis Expert', de: 'Big Data Analysis Expert' },
+    title: {
+      ko: '빅데이터분석기사',
+      en: 'Big Data Analysis Expert',
+      de: 'Big Data Analysis Expert',
+    },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'BAE-009001215',
     issueDate: '2024.12.20',
@@ -43,7 +47,11 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_07.do',
   },
   {
-    title: { ko: '데이터분석준전문가 (ADsP)', en: 'Advanced Data Analytics Semi-Professional', de: 'Advanced Data Analytics Semi-Professional' },
+    title: {
+      ko: '데이터분석준전문가 (ADsP)',
+      en: 'Advanced Data Analytics Semi-Professional',
+      de: 'Advanced Data Analytics Semi-Professional',
+    },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'ADsP-038010724',
     issueDate: '2023.09.15',
@@ -51,7 +59,11 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_06.do',
   },
   {
-    title: { ko: '데이터아키텍처준전문가 (DAsP)', en: 'Data Architecture Semi-Professional', de: 'Data Architecture Semi-Professional' },
+    title: {
+      ko: '데이터아키텍처준전문가 (DAsP)',
+      en: 'Data Architecture Semi-Professional',
+      de: 'Data Architecture Semi-Professional',
+    },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'DAsP-000000000',
     issueDate: '2024.11.29',
@@ -59,7 +71,11 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_05.do',
   },
   {
-    title: { ko: 'GTQ그래픽기술자격 1급', en: 'Graphic Technology Qualification Level-1', de: 'Graphic Technology Qualification Level-1' },
+    title: {
+      ko: 'GTQ그래픽기술자격 1급',
+      en: 'Graphic Technology Qualification Level-1',
+      de: 'Graphic Technology Qualification Level-1',
+    },
     issuer: '한국생산성본부(KPC)',
     issueNumber: 'GA10123108027780',
     issueDate: '2023.09.15',
@@ -67,7 +83,11 @@ export const certificateItems = [
     url: 'https://license.kpc.or.kr/nasec/qlfint/qlfint/selectGtqinfomg.do',
   },
   {
-    title: { ko: 'Microsoft Certified: Azure Fundamentals (AZ-900)', en: 'Microsoft Certified: Azure Fundamentals', de: 'Microsoft Certified: Azure Fundamentals' },
+    title: {
+      ko: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
+      en: 'Microsoft Certified: Azure Fundamentals',
+      de: 'Microsoft Certified: Azure Fundamentals',
+    },
     issuer: 'Microsoft',
     issueNumber: 'BB058690C8BCCD6',
     issueDate: '2023.09.02',
@@ -75,7 +95,11 @@ export const certificateItems = [
     url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/?practice-assessment-type=certification',
   },
   {
-    title: { ko: 'Microsoft Certified: Azure Data Fundamentals (DP-900)', en: 'Microsoft Certified: Azure Data Fundamentals', de: 'Microsoft Certified: Azure Data Fundamentals' },
+    title: {
+      ko: 'Microsoft Certified: Azure Data Fundamentals (DP-900)',
+      en: 'Microsoft Certified: Azure Data Fundamentals',
+      de: 'Microsoft Certified: Azure Data Fundamentals',
+    },
     issuer: 'Microsoft',
     issueNumber: '67FD8DA0DF079ADA',
     issueDate: '2023.08.12',
@@ -83,7 +107,11 @@ export const certificateItems = [
     url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/?practice-assessment-type=certification',
   },
   {
-    title: { ko: 'Microsoft Certified: Azure AI Fundamentals (AI-900)', en: 'Microsoft Certified: Azure AI Fundamentals', de: 'Microsoft Certified: Azure AI Fundamentals' },
+    title: {
+      ko: 'Microsoft Certified: Azure AI Fundamentals (AI-900)',
+      en: 'Microsoft Certified: Azure AI Fundamentals',
+      de: 'Microsoft Certified: Azure AI Fundamentals',
+    },
     issuer: 'Microsoft',
     issueNumber: '848F816BEEAA7DD',
     issueDate: '2023.07.24',
@@ -91,7 +119,11 @@ export const certificateItems = [
     url: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/?practice-assessment-type=certification',
   },
   {
-    title: { ko: 'SQL개발자', en: 'Structured Query Language Developer', de: 'Structured Query Language Developer' },
+    title: {
+      ko: 'SQL개발자',
+      en: 'Structured Query Language Developer',
+      de: 'Structured Query Language Developer',
+    },
     issuer: '한국데이터산업진흥원(KDA)',
     issueNumber: 'SQLD-048004031',
     issueDate: '2023.04.14',
@@ -99,7 +131,11 @@ export const certificateItems = [
     url: 'https://www.dataq.or.kr/www/sub/a_04.do',
   },
   {
-    title: { ko: '정보처리기사', en: 'Engineer Information Processing', de: 'Engineer Information Processing' },
+    title: {
+      ko: '정보처리기사',
+      en: 'Engineer Information Processing',
+      de: 'Engineer Information Processing',
+    },
     issuer: '한국산업인력공단(HRDK)',
     issueNumber: '22201011070F',
     issueDate: '2022.06.17',
@@ -107,7 +143,11 @@ export const certificateItems = [
     url: 'https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320',
   },
   {
-    title: { ko: '리눅스마스터 1급', en: 'Linux Master Level-I', de: 'Linux Master Level-I' },
+    title: {
+      ko: '리눅스마스터 1급',
+      en: 'Linux Master Level-I',
+      de: 'Linux Master Level-I',
+    },
     issuer: '한국정보통신진흥협회(KAIT)',
     issueNumber: 'LMF-2201-002118',
     issueDate: '2022.06.10',
@@ -115,7 +155,11 @@ export const certificateItems = [
     url: 'https://www.ihd.or.kr/introducesubject1.do',
   },
   {
-    title: { ko: '컴퓨터활용능력 1급', en: 'Computer Specialist in Spreadsheet & Database Level-I', de: 'Computer Specialist in Spreadsheet & Database Level-I' },
+    title: {
+      ko: '컴퓨터활용능력 1급',
+      en: 'Computer Specialist in Spreadsheet & Database Level-I',
+      de: 'Computer Specialist in Spreadsheet & Database Level-I',
+    },
     issuer: '대한상공회의소 자격평가사업단(KCCI)',
     issueNumber: '22-K9-002213',
     issueDate: '2022.01.08',
@@ -123,7 +167,11 @@ export const certificateItems = [
     url: 'https://license.korcham.net/co/examguide.do?mm=21&cd=0103',
   },
   {
-    title: { ko: '네트워크관리사 2급', en: 'Network Advisor Level-II', de: 'Network Advisor Level-II' },
+    title: {
+      ko: '네트워크관리사 2급',
+      en: 'Network Advisor Level-II',
+      de: 'Network Advisor Level-II',
+    },
     issuer: '한국정보통신자격협회(ICQA)',
     issueNumber: 'NT2056954',
     issueDate: '2021.06.13',
@@ -131,7 +179,11 @@ export const certificateItems = [
     url: 'https://www.icqa.or.kr/cn/page/network',
   },
   {
-    title: { ko: '워드프로세서', en: 'Word Processor Specialist', de: 'Word Processor Specialist' },
+    title: {
+      ko: '워드프로세서',
+      en: 'Word Processor Specialist',
+      de: 'Word Processor Specialist',
+    },
     issuer: '대한상공회의소 자격평가사업단(KCCI)',
     issueNumber: '21-I9-010028',
     issueDate: '2021.06.04',
@@ -139,7 +191,11 @@ export const certificateItems = [
     url: 'https://license.korcham.net/co/examguide.do?mm=22&cd=0102',
   },
   {
-    title: { ko: '자동차운전면허 (1종보통/1종대형)', en: "Driver's License (Class 1 Regular/Heavy Vehicle)", de: "Driver's License (Class 1 Regular/Heavy Vehicle)" },
+    title: {
+      ko: '자동차운전면허 (1종보통/1종대형)',
+      en: "Driver's License (Class 1 Regular/Heavy Vehicle)",
+      de: "Driver's License (Class 1 Regular/Heavy Vehicle)",
+    },
     issuer: '한국도로교통공단(KoROAD)',
     issueNumber: '25-16-031128-21',
     issueDate: '2020.02.13',
@@ -147,7 +203,11 @@ export const certificateItems = [
     url: 'https://www.safedriving.or.kr/guide/rerGuide07View.do?menuCode=MN-PO-1117',
   },
   {
-    title: { ko: 'TOEIC (880/990)', en: 'Test Of English for International Communication', de: 'Test Of English for International Communication' },
+    title: {
+      ko: 'TOEIC (880/990)',
+      en: 'Test Of English for International Communication',
+      de: 'Test Of English for International Communication',
+    },
     issuer: 'YBM ETS',
     issueNumber: '090157-0311003001',
     issueDate: '2017.07.17',
@@ -252,6 +312,22 @@ export const courseItems = [
       de: 'Ein 30-stündiger Kurs zu Flutter und Dart mit Fokus auf Multi-Plattform-App-Struktur, widgetbasiertes UI-Design, State-Management und App-Ablauf.',
     },
     url: 'https://www.udemy.com/certificate/UC-6807b4fc-3f9a-453d-90c9-9d27291cba17/',
+  },
+  {
+    title: {
+      ko: 'Understanding TypeScript',
+      en: 'Understanding TypeScript',
+      de: 'Understanding TypeScript',
+    },
+    provider: 'Udemy',
+    period: '2026.03.28 - Current',
+    completedDate: null,
+    description: {
+      ko: '약 23시간 동안 TypeScript의 기본 개념부터 고급 타입, 제네릭, 인터페이스, 클래스, 모듈, 컴파일 과정 등을 학습하며 실습을 통해 타입 안전한 JavaScript 애플리케이션을 개발하는 과정입니다.',
+      en: 'A 23-hour course covering TypeScript fundamentals, advanced types, generics, interfaces, classes, modules, and the compilation process, with hands-on practice to build type-safe JavaScript applications.',
+      de: 'Ein 23-stündiger Kurs, der TypeScript-Grundlagen, erweiterte Typen, Generics, Interfaces, Klassen, Module und den Kompilierungsprozess abdeckt, mit praktischen Übungen zur Entwicklung typsicherer JavaScript-Anwendungen.',
+    },
+    url: 'https://www.udemy.com/course/understanding-typescript/',
   },
   {
     title: {
