@@ -51,7 +51,7 @@ export const translations = {
         '2025.02 - Present',
         'PLAYBUNIZ Inc.',
         '풀스택 개발',
-        'React, React.js, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL',
+        'React.js, TailwindCSS, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL, Figma',
       ],
       [
         '2024.10 - 2024.10',
@@ -158,7 +158,7 @@ export const translations = {
         '2025.02 - Present',
         'PLAYBUNIZ Inc.',
         'Full-stack Development',
-        'React, React.js, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL',
+        'React.js, TailwindCSS, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL, Figma',
       ],
       [
         '2024.10 - 2024.10',
@@ -266,7 +266,7 @@ export const translations = {
         '2025.02 - Present',
         'PLAYBUNIZ Inc.',
         'Full-stack Development',
-        'React, React.js, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL',
+        'React.js, TailwindCSS, Next.js, Azure, AWS, React Native, Flutter, MongoDB, PostgreSQL, Figma',
       ],
       [
         '2024.10 - 2024.10',
