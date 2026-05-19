@@ -204,6 +204,18 @@ export const certificateItems = [
   },
   {
     title: {
+      ko: 'Understanding TypeScript',
+      en: 'Understanding TypeScript',
+      de: 'Understanding TypeScript',
+    },
+    issuer: 'Udemy',
+    issueNumber: 'UC-47623936-7215-46c3-8a35-7561e7fc08ec',
+    issueDate: '2024.06.01',
+    image: './assets/images/certificate/kdata.png',
+    url: 'https://www.udemy.com/certificate/UC-47623936-7215-46c3-8a35-7561e7fc08ec/',
+  },
+  {
+    title: {
       ko: 'TOEIC (880/990)',
       en: 'Test Of English for International Communication',
       de: 'Test Of English for International Communication',
@@ -320,14 +332,14 @@ export const courseItems = [
       de: 'Understanding TypeScript',
     },
     provider: 'Udemy',
-    period: '2026.03.28 - Current',
-    completedDate: null,
+    period: '2026.03.28 - 2026.05.19',
+    completedDate: '2026.05.19',
     description: {
-      ko: '약 23시간 동안 TypeScript의 기본 개념부터 고급 타입, 제네릭, 인터페이스, 클래스, 모듈, 컴파일 과정 등을 학습하며 실습을 통해 타입 안전한 JavaScript 애플리케이션을 개발하는 과정입니다.',
-      en: 'A 23-hour course covering TypeScript fundamentals, advanced types, generics, interfaces, classes, modules, and the compilation process, with hands-on practice to build type-safe JavaScript applications.',
-      de: 'Ein 23-stündiger Kurs, der TypeScript-Grundlagen, erweiterte Typen, Generics, Interfaces, Klassen, Module und den Kompilierungsprozess abdeckt, mit praktischen Übungen zur Entwicklung typsicherer JavaScript-Anwendungen.',
+      ko: '약 23시간 동안 TypeScript의 기본 개념, 고급 타입, 제네릭, 인터페이스, 클래스, 모듈, 컴파일 설정을 학습하고 React 및 Node.js 환경에서 타입 안전한 JavaScript 애플리케이션을 개발하는 과정입니다.',
+      en: 'A 23-hour course covering TypeScript fundamentals, advanced types, generics, interfaces, classes, modules, and compiler configuration while applying type-safe JavaScript development with React and Node.js.',
+      de: 'Ein 23-stündiger Kurs zu TypeScript-Grundlagen, erweiterten Typen, Generics, Interfaces, Klassen, Modulen und Compiler-Konfiguration mit Anwendung in typsicherer JavaScript-Entwicklung mit React und Node.js.',
     },
-    url: 'https://www.udemy.com/course/understanding-typescript/',
+    url: 'https://www.udemy.com/certificate/UC-47623936-7215-46c3-8a35-7561e7fc08ec/',
   },
   {
     title: {
