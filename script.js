@@ -72,6 +72,7 @@ const elements = {
   blogTitle: document.getElementById('blog-title'),
   blogDescription: document.getElementById('blog-description'),
   blogLinkLabel: document.getElementById('blog-link-label'),
+  studyLogLinkLabel: document.getElementById('study-log-link-label'),
   contactKicker: document.getElementById('contact-kicker'),
   contactTitle: document.getElementById('contact-title'),
 };
@@ -79,6 +80,30 @@ const elements = {
 let currentLang = localStorage.getItem('github-home-lang') || 'ko';
 let typingToken = 0;
 let currentTheme = localStorage.getItem('github-home-theme') || 'light';
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => {
+    const entities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+
+    return entities[character];
+  });
+}
+
+function getTechIconMarkup(item) {
+  const fallback = escapeHtml(item.icon);
+
+  if (!item.iconUrl) {
+    return fallback;
+  }
+
+  return `<img class="tech-icon-image" src="${escapeHtml(item.iconUrl)}" alt="${escapeHtml(item.name)} icon" data-fallback="${fallback}" loading="lazy" decoding="async" />`;
+}
 
 function buildTechStack(mainLabel) {
   const sortedTechStackItems = [...techStackItems].sort((a, b) => {
@@ -97,9 +122,21 @@ function buildTechStack(mainLabel) {
     .map((item) => {
       const filled = Math.floor(item.proficiency / 20);
       const empty = 5 - filled;
-      return `<article class="tech-card"><div class="tech-icon">${item.icon}</div><div class="tech-body"><p class="tech-name">${item.name}</p><div class="skill-boxes">${Array.from({ length: filled }, () => '<span class="skill-box skill-box-filled"></span>').join('')}${Array.from({ length: empty }, () => '<span class="skill-box"></span>').join('')}</div></div>${item.isMain ? `<span class="main-ribbon">${mainLabel}</span>` : ''}</article>`;
+      return `<article class="tech-card"><div class="tech-icon">${getTechIconMarkup(item)}</div><div class="tech-body"><p class="tech-name">${escapeHtml(item.name)}</p><div class="skill-boxes">${Array.from({ length: filled }, () => '<span class="skill-box skill-box-filled"></span>').join('')}${Array.from({ length: empty }, () => '<span class="skill-box"></span>').join('')}</div></div>${item.isMain ? `<span class="main-ribbon">${escapeHtml(mainLabel)}</span>` : ''}</article>`;
     })
     .join('');
+
+  elements.techStackGrid
+    .querySelectorAll('.tech-icon-image')
+    .forEach((image) => {
+      image.addEventListener('error', () => {
+        const icon = image.closest('.tech-icon');
+
+        if (icon) {
+          icon.textContent = image.dataset.fallback || '';
+        }
+      });
+    });
 }
 
 function buildCertificates(lang) {
@@ -253,6 +290,7 @@ function setLanguage(lang) {
   elements.blogTitle.textContent = t.blogTitle;
   elements.blogDescription.textContent = t.blogDescription;
   elements.blogLinkLabel.textContent = t.blogLinkLabel;
+  elements.studyLogLinkLabel.textContent = t.studyLogLinkLabel;
   elements.contactKicker.textContent = t.contactKicker;
   elements.contactTitle.textContent = t.contactTitle;
   languageButtons.forEach((button) => {
