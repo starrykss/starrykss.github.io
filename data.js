@@ -11,6 +11,7 @@ export const techStackItems = [
   { name: 'React.js', proficiency: 90, isMain: true, icon: 'RE', iconUrl: simpleIcon('react') },
   { name: 'React Native', proficiency: 100, isMain: true, icon: 'RN', iconUrl: simpleIcon('react') },
   { name: 'Flutter', proficiency: 100, isMain: true, icon: 'FL', iconUrl: simpleIcon('flutter') },
+  { name: 'Dart', proficiency: 100, isMain: true, icon: 'DA', iconUrl: simpleIcon('dart') },
   { name: 'Redux', proficiency: 80, isMain: false, icon: 'RX', iconUrl: simpleIcon('redux') },
   { name: 'React Query', proficiency: 80, isMain: false, icon: 'RQ', iconUrl: simpleIcon('reactquery') },
   { name: 'React Router', proficiency: 80, isMain: false, icon: 'RR', iconUrl: simpleIcon('reactrouter') },
@@ -344,6 +345,22 @@ export const courseItems = [
       de: 'Ein 23-stündiger Kurs zu TypeScript-Grundlagen, erweiterten Typen, Generics, Interfaces, Klassen, Modulen und Compiler-Konfiguration mit Anwendung in typsicherer JavaScript-Entwicklung mit React und Node.js.',
     },
     url: 'https://www.udemy.com/certificate/UC-47623936-7215-46c3-8a35-7561e7fc08ec/',
+  },
+  {
+    title: {
+      ko: 'Flutter Dart | Flutter App Development Projects Course',
+      en: 'Flutter Dart | Flutter App Development Projects Course',
+      de: 'Flutter Dart | Flutter App Development Projects Course',
+    },
+    provider: 'Udemy',
+    period: '2026.05.23 - 2026.06.14',
+    completedDate: '2026.06.14',
+    description: {
+      ko: '약 18시간 동안 Flutter와 Dart 기반 앱 개발을 학습하며 프로젝트 구조, 위젯 기반 UI, Firebase 연동, 애니메이션, Provider/BLoC/GetX 상태 관리, 웹/모바일 앱 제작 흐름을 다룬 과정입니다.',
+      en: 'An approximately 18-hour Udemy course covering Flutter and Dart app development, including project structure, widget-based UI, Firebase integration, animations, Provider/BLoC/GetX state management, and web/mobile app workflows.',
+      de: 'Ein etwa 18-stundiger Udemy-Kurs zur App-Entwicklung mit Flutter und Dart, einschliesslich Projektstruktur, widgetbasierter UI, Firebase-Integration, Animationen, Provider/BLoC/GetX-State-Management und Web-/Mobile-App-Workflows.',
+    },
+    url: 'https://www.udemy.com/certificate/UC-4b1f4a4a-8d9b-4969-961f-34445a030127/',
   },
   {
     title: {
