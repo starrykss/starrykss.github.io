@@ -46,6 +46,8 @@ export const translations = {
     experienceKicker: 'Timeline',
     experienceTitle: 'Experience & Education',
     experienceSummary: '',
+    experienceGroupTitle: '경력',
+    educationGroupTitle: '학력',
     timeline: [
       [
         '2025.02 - Present',
@@ -155,6 +157,8 @@ export const translations = {
     experienceKicker: 'Timeline',
     experienceTitle: 'Experience & Education',
     experienceSummary: '',
+    experienceGroupTitle: 'Experience',
+    educationGroupTitle: 'Education',
     timeline: [
       [
         '2025.02 - Present',
@@ -264,6 +268,8 @@ export const translations = {
     experienceKicker: 'Timeline',
     experienceTitle: 'Experience & Education',
     experienceSummary: '',
+    experienceGroupTitle: 'Berufserfahrung',
+    educationGroupTitle: 'Ausbildung',
     timeline: [
       [
         '2025.02 - Present',
