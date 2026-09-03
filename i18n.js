@@ -26,7 +26,7 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: '김상순 · @starrykss',
     profileDescription:
-      '안녕하세요, 저는 소프트웨어 엔지니어 김상순입니다. 저는 웹과 모바일을 자연스럽게 잇는 크로스 플랫폼 개발을 지향합니다. 현재는 React와 Next.js를 중심으로 웹 프론트엔드를 개발하고 있으며, React Native와 Flutter를 이용하여 UX 적으로 편리한 애플리케이션을 개발하고 있습니다.',
+      '프론트엔드에만 머무르기보다 백엔드와 DevOps까지 폭넓게 살피며, 서비스 전반을 설계하고 개발하는 일에 관심이 많습니다. 새로운 기술을 배우는 걸 좋아하고, 단순히 동작하는 데서 끝내지 않고 더 빠르고 안정적으로 개선하는 과정을 중요하게 생각합니다. 여러 사람의 일상에 실질적인 도움이 되는 크로스 플랫폼 애플리케이션을 만들고 있습니다.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
@@ -156,7 +156,7 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'Hello, I am software engineer Sangsun Kim. I aim to build cross-platform products that connect web and mobile naturally. My current focus is web frontend development with React and Next.js, while I continue expanding into mobile and multi-device experiences with React Native and Flutter, along with AI development using Azure AI Foundry and Codex.',
+      'I am interested in designing and building products end to end, looking beyond the frontend to the backend and DevOps. I enjoy learning new technologies and care about taking software beyond “it works” by making it faster, more stable, and easier to maintain. I build cross-platform applications that can be genuinely useful in people’s everyday lives.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
@@ -286,7 +286,7 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'Hallo, ich bin Software Engineer Sangsun Kim. Ich strebe plattformübergreifende Entwicklung an, die Web und Mobile natürlich verbindet. Derzeit konzentriere ich mich auf Frontend-Entwicklung mit React und Next.js und erweitere meine Erfahrung parallel mit React Native und Flutter sowie mit AI-Entwicklung auf Basis von Azure AI Foundry und Codex.',
+      'Ich interessiere mich dafür, Produkte ganzheitlich zu konzipieren und zu entwickeln – vom Frontend über das Backend bis hin zu DevOps. Ich lerne gern neue Technologien und gebe mich nicht damit zufrieden, dass Software nur funktioniert, sondern achte auch auf Performance, Stabilität und Wartbarkeit. Dabei entwickle ich plattformübergreifende Anwendungen, die Menschen im Alltag wirklich weiterhelfen.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
