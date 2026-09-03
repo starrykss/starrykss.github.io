@@ -95,7 +95,6 @@ const elements = {
   contactMessageLabel: document.getElementById('contact-message-label'),
   contactMessage: document.getElementById('contact-message'),
   contactSubmitLabel: document.getElementById('contact-submit-label'),
-  contactFormNote: document.getElementById('contact-form-note'),
   contactFormStatus: document.getElementById('contact-form-status'),
 };
 
@@ -458,7 +457,6 @@ function setLanguage(lang) {
   elements.contactMessageLabel.textContent = t.contactMessageLabel;
   elements.contactMessage.placeholder = t.contactMessagePlaceholder;
   elements.contactSubmitLabel.textContent = t.contactSubmitLabel;
-  elements.contactFormNote.textContent = t.contactFormNote;
   elements.contactFormStatus.textContent = '';
   languageButtons.forEach((button) => {
     button.classList.toggle('is-active', button.dataset.lang === lang);
