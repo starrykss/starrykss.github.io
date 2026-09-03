@@ -13,8 +13,6 @@ export const translations = {
     ],
     heroEyebrow: 'Software Engineer · Cross Platform Focus · AI Focus · Seoul',
     heroText: '안녕하세요!\n저는 SW Engineer\n김상순입니다',
-    heroDescription:
-      '사용자 경험(UX) 극대화에 집중하여 웹, 모바일, AI 기반 크로스 플랫폼 애플리케이션을 개발하고 있습니다. 저는 웹 프론트엔드 개발을 중심으로 일하고 있고, React Native와 Flutter를 활용한 모바일 앱 개발에도 관심을 넓혀가고 있습니다. 최근에는 생산성을 높이기 위해 Azure AI Foundry와 Codex 등을 활용한 AI 활용 개발 방식에도 관심을 넓혀가고 있습니다.',
     heroActions: ['소개', '포트폴리오', '연락처'],
     quickFacts: [
       'React / Next.js 기반 프론트엔드 개발',
@@ -143,8 +141,6 @@ export const translations = {
     ],
     heroEyebrow: 'Software Engineer · Cross Platform Focus · AI Focus · Seoul',
     heroText: 'Hey, There!\nI am SW Engineer\nSangsun Kim',
-    heroDescription:
-      'I focus on maximizing user experience by building cross-platform applications across web, mobile, and AI-driven experiences. I am a software engineer aiming for cross-platform development across both web and mobile. Building on React and Next.js for the web, I am expanding into React Native and Flutter while also growing AI development experience with Azure AI Foundry and Codex.',
     heroActions: ['About', 'Portfolio', 'Contact'],
     quickFacts: [
       'Frontend development with React and Next.js',
@@ -273,8 +269,6 @@ export const translations = {
     ],
     heroEyebrow: 'Software Engineer · Cross Platform Focus · AI Focus · Seoul',
     heroText: 'Hallo!\nIch bin SW Engineer\nSangsun Kim',
-    heroDescription:
-      'Ich konzentriere mich darauf, die User Experience durch plattformübergreifende Anwendungen für Web, Mobile und AI-gestützte Erlebnisse zu maximieren. Ich bin ein Software Engineer mit Fokus auf plattformübergreifende Entwicklung für Web und Mobile. Auf Basis von React und Next.js erweitere ich meine Arbeit in Richtung React Native und Flutter und baue zugleich Erfahrung in AI-Entwicklung mit Azure AI Foundry und Codex auf.',
     heroActions: ['About', 'Portfolio', 'Kontakt'],
     quickFacts: [
       'Frontend-Entwicklung mit React und Next.js',
