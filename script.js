@@ -12,6 +12,12 @@ const floatingLanguageTrigger = document.getElementById(
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleIcon = document.getElementById('theme-toggle-icon');
 const topbar = document.querySelector('.topbar');
+const scrollProgressBar = document.getElementById('scroll-progress-bar');
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (!motionPreference.matches && 'IntersectionObserver' in window) {
+  root.classList.add('motion-ready');
+}
 
 const moonIcon = `
   <svg viewBox="0 0 24 24" focusable="false">
@@ -80,6 +86,9 @@ const elements = {
 let currentLang = localStorage.getItem('github-home-lang') || 'ko';
 let typingToken = 0;
 let currentTheme = localStorage.getItem('github-home-theme') || 'light';
+let revealObserver = null;
+let observedRevealTargets = new WeakSet();
+let scrollUpdateQueued = false;
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => {
@@ -175,7 +184,7 @@ function buildCourses(lang, emptyMessage) {
   elements.courseGrid.innerHTML = sortedCourseItems
     .map(
       (item) =>
-        `<a class="course-card" href="${item.url}" target="_blank" rel="noreferrer">${item.completedDate ? `<span class="course-completed-date"><span class="course-completed-date-icon">${courseCompletedIcon}</span><span>${item.completedDate}</span></span>` : ''}<div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><span class="course-period">${item.period}</span><p class="muted">${getCourseDescription(item)}</p></a>`,
+        `<li class="course-list-item"><a class="course-item" href="${item.url}" target="_blank" rel="noreferrer">${item.completedDate ? `<span class="course-completed-date"><span class="course-completed-date-icon">${courseCompletedIcon}</span><span>${item.completedDate}</span></span>` : '<span></span>'}<div class="course-content"><div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><p class="muted">${getCourseDescription(item)}</p></div><span class="course-period">${item.period}</span></a></li>`,
     )
     .join('');
 }
@@ -189,7 +198,7 @@ function buildOverview(items) {
     .join('');
 }
 
-function buildTimeline(items) {
+function buildTimeline(items, labels) {
   const companyIcon = `
     <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
       <path d="M5.75 19.25V6.75c0-.55.45-1 1-1h10.5c.55 0 1 .45 1 1v12.5M4.5 19.25h15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -202,14 +211,137 @@ function buildTimeline(items) {
     </svg>
   `;
 
-  elements.timeline.innerHTML = items
-    .map(([period, title, role, description]) => {
-      const isSchool = /school|university/i.test(title);
-      const icon = isSchool ? schoolIcon : companyIcon;
+  const isEducationItem = ([, title]) =>
+    /school|university|학교|대학|schule|universit[aä]t/i.test(title);
+  const experienceItems = items.filter((item) => !isEducationItem(item));
+  const educationItems = items.filter(isEducationItem);
 
-      return `<article class="timeline-item"><span class="timeline-period">${period}</span><h3 class="timeline-title"><span class="timeline-title-icon">${icon}</span><span>${title}</span></h3><p class="timeline-role">${role}</p>${description ? `<p class="muted">${description}</p>` : ''}</article>`;
-    })
-    .join('');
+  const renderItems = (groupItems) =>
+    groupItems
+      .map(
+        ([period, title, role, description]) =>
+          `<li class="timeline-item"><span class="timeline-marker" aria-hidden="true"></span><span class="timeline-period">${escapeHtml(period)}</span><h4 class="timeline-title">${escapeHtml(title)}</h4><p class="timeline-role">${escapeHtml(role)}</p>${description ? `<p class="muted">${escapeHtml(description)}</p>` : ''}</li>`,
+      )
+      .join('');
+
+  const renderGroup = (type, label, icon, groupItems) =>
+    `<section class="timeline-group timeline-group-${type}" aria-labelledby="timeline-${type}-title"><div class="timeline-group-head"><span class="timeline-group-icon" aria-hidden="true">${icon}</span><h3 id="timeline-${type}-title">${escapeHtml(label)}</h3><span class="timeline-group-count" aria-hidden="true">${groupItems.length}</span></div><ol class="timeline-list">${renderItems(groupItems)}</ol></section>`;
+
+  elements.timeline.innerHTML = [
+    renderGroup(
+      'experience',
+      labels.experience,
+      companyIcon,
+      experienceItems,
+    ),
+    renderGroup('education', labels.education, schoolIcon, educationItems),
+  ].join('');
+}
+
+function observeRevealTarget(target, direction = 'up', delay = 0) {
+  if (!target || !revealObserver || observedRevealTargets.has(target)) return;
+
+  target.dataset.reveal = direction;
+  target.style.setProperty('--reveal-delay', `${delay}ms`);
+  observedRevealTargets.add(target);
+  revealObserver.observe(target);
+}
+
+function observeRevealGroup(
+  selector,
+  { direction = 'up', stagger = 0, maxDelay = 320 } = {},
+) {
+  document.querySelectorAll(selector).forEach((target, index) => {
+    observeRevealTarget(
+      target,
+      direction,
+      Math.min(index * stagger, maxDelay),
+    );
+  });
+}
+
+function registerMotionTargets() {
+  observeRevealTarget(document.querySelector('.hero-top-box'), 'up', 40);
+  observeRevealTarget(document.querySelector('.hero-bottom-box'), 'up', 140);
+
+  document.querySelectorAll('#about > .card').forEach((target, index) => {
+    observeRevealTarget(target, index === 0 ? 'left' : 'right', index * 90);
+  });
+
+  observeRevealGroup('.content > .card:not(.hero)', {
+    stagger: 0,
+  });
+
+  document.querySelectorAll('#highlights > .card').forEach((target, index) => {
+    observeRevealTarget(target, index === 0 ? 'left' : 'right', index * 90);
+  });
+
+  observeRevealGroup('.intro-points > div', {
+    stagger: 70,
+    maxDelay: 210,
+  });
+  observeRevealGroup('.timeline-item', {
+    stagger: 70,
+    maxDelay: 280,
+  });
+  observeRevealGroup('.tech-card', {
+    stagger: 36,
+    maxDelay: 288,
+  });
+  observeRevealGroup('.certificate-card', {
+    stagger: 55,
+    maxDelay: 275,
+  });
+  observeRevealGroup('.course-list-item', {
+    stagger: 36,
+    maxDelay: 144,
+  });
+  observeRevealGroup('.contact-item', {
+    stagger: 70,
+    maxDelay: 210,
+  });
+}
+
+function initializeScrollMotion() {
+  if (revealObserver) return;
+
+  if (motionPreference.matches || !('IntersectionObserver' in window)) {
+    root.classList.remove('motion-ready');
+    return;
+  }
+
+  root.classList.add('motion-ready');
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -6% 0px',
+    },
+  );
+
+  registerMotionTargets();
+}
+
+function handleMotionPreferenceChange(event) {
+  if (event.matches) {
+    root.classList.remove('motion-ready');
+    revealObserver?.disconnect();
+    revealObserver = null;
+    document.querySelectorAll('[data-reveal]').forEach((target) => {
+      target.classList.add('is-visible');
+    });
+    return;
+  }
+
+  observedRevealTargets = new WeakSet();
+  initializeScrollMotion();
 }
 
 function renderTypedText(text) {
@@ -273,7 +405,10 @@ function setLanguage(lang) {
   elements.experienceKicker.textContent = t.experienceKicker;
   elements.experienceTitle.textContent = t.experienceTitle;
   elements.experienceSummary.textContent = t.experienceSummary;
-  buildTimeline(t.timeline);
+  buildTimeline(t.timeline, {
+    experience: t.experienceGroupTitle,
+    education: t.educationGroupTitle,
+  });
   elements.stackKicker.textContent = t.stackKicker;
   elements.stackTitle.textContent = t.stackTitle;
   buildTechStack(t.stackMainLabel);
@@ -304,6 +439,10 @@ function setLanguage(lang) {
   }
   localStorage.setItem('github-home-lang', lang);
   startTyping(t.heroText, lang);
+
+  if (revealObserver) {
+    window.requestAnimationFrame(registerMotionTargets);
+  }
 }
 
 function applyTheme(theme) {
@@ -324,6 +463,60 @@ function applyTheme(theme) {
 function syncTopbarState() {
   if (!topbar) return;
   topbar.classList.toggle('is-scrolled', window.scrollY > 16);
+}
+
+function syncScrollInterface() {
+  syncTopbarState();
+
+  const scrollableHeight = Math.max(
+    document.documentElement.scrollHeight - window.innerHeight,
+    0,
+  );
+  const progress = scrollableHeight
+    ? Math.min(Math.max(window.scrollY / scrollableHeight, 0), 1)
+    : 0;
+
+  if (scrollProgressBar) {
+    scrollProgressBar.style.transform = `scaleX(${progress})`;
+  }
+
+  const activationLine = Math.min(window.innerHeight * 0.32, 220);
+  let activeLink = null;
+
+  elements.nav.forEach((link) => {
+    const target = document.querySelector(link.getAttribute('href'));
+
+    if (target && target.getBoundingClientRect().top <= activationLine) {
+      activeLink = link;
+    }
+  });
+
+  if (
+    window.innerHeight + window.scrollY >=
+    document.documentElement.scrollHeight - 4
+  ) {
+    activeLink = elements.nav[elements.nav.length - 1] || activeLink;
+  }
+
+  elements.nav.forEach((link) => {
+    const isActive = link === activeLink;
+    link.classList.toggle('is-active', isActive);
+
+    if (isActive) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+
+  scrollUpdateQueued = false;
+}
+
+function requestScrollInterfaceUpdate() {
+  if (scrollUpdateQueued) return;
+
+  scrollUpdateQueued = true;
+  window.requestAnimationFrame(syncScrollInterface);
 }
 
 languageButtons.forEach((button) => {
@@ -350,8 +543,16 @@ if (themeToggle) {
   });
 }
 
-window.addEventListener('scroll', syncTopbarState, { passive: true });
+window.addEventListener('scroll', requestScrollInterfaceUpdate, {
+  passive: true,
+});
+window.addEventListener('resize', requestScrollInterfaceUpdate, {
+  passive: true,
+});
+window.addEventListener('load', requestScrollInterfaceUpdate, { once: true });
+motionPreference.addEventListener?.('change', handleMotionPreferenceChange);
 
 applyTheme(currentTheme === 'dark' ? 'dark' : 'light');
 setLanguage(translations[currentLang] ? currentLang : 'ko');
-syncTopbarState();
+initializeScrollMotion();
+syncScrollInterface();
