@@ -93,7 +93,7 @@ export const translations = {
     blogDescription:
       '개발을 하면서 새로 알게된 점, 공부한 내용, 회고 등을 정리한 공간입니다.',
     blogLinkLabel: '블로그',
-    studyLogLinkLabel: '기술 로그',
+    studyLogLinkLabel: '기술 블로그',
     certIssueNumber: '자격번호',
     certIssueDate: '취득일',
     highlights: [
@@ -108,6 +108,27 @@ export const translations = {
     ],
     contactKicker: 'Get In Touch',
     contactTitle: 'Contact',
+    contactLinksLabel: '연락처 링크',
+    contactLinkLabels: {
+      email: '이메일',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      baekjoon: '백준',
+    },
+    contactFormTitle: '간단한 문의',
+    contactFormDescription:
+      '내용을 작성하면 사용 중인 기기의 기본 메일 앱으로 연결됩니다.',
+    contactEmailLabel: '이메일',
+    contactEmailPlaceholder: '회신받을 이메일을 입력해주세요',
+    contactSubjectLabel: '제목',
+    contactSubjectPlaceholder: '문의 제목을 입력해주세요',
+    contactMessageLabel: '내용',
+    contactMessagePlaceholder: '문의 내용을 입력해주세요',
+    contactSubmitLabel: '메일 앱에서 보내기',
+    contactFormNote: '전송 버튼을 누르면 기본 메일 앱이 열립니다.',
+    contactFormStatus:
+      '메일 앱을 열었습니다. 작성 내용을 확인한 후 전송해주세요.',
+    contactMailSenderLabel: '회신 이메일',
     footer: 'Made by Sangsun Kim',
   },
   en: {
@@ -204,7 +225,7 @@ export const translations = {
     blogDescription:
       'A space where I organize new learnings, study notes, and retrospectives from development.',
     blogLinkLabel: 'Blog',
-    studyLogLinkLabel: 'Tech Log',
+    studyLogLinkLabel: 'Tech Blog',
     certIssueNumber: 'Issue Number',
     certIssueDate: 'Issue Date',
     highlights: [
@@ -219,6 +240,27 @@ export const translations = {
     ],
     contactKicker: 'Get In Touch',
     contactTitle: 'Contact',
+    contactLinksLabel: 'Contact links',
+    contactLinkLabels: {
+      email: 'Email',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      baekjoon: 'Baekjoon',
+    },
+    contactFormTitle: 'Send a message',
+    contactFormDescription:
+      'Fill in the details to continue in your device’s default mail app.',
+    contactEmailLabel: 'Email',
+    contactEmailPlaceholder: 'Your reply email',
+    contactSubjectLabel: 'Subject',
+    contactSubjectPlaceholder: 'What would you like to discuss?',
+    contactMessageLabel: 'Message',
+    contactMessagePlaceholder: 'Write your message',
+    contactSubmitLabel: 'Open mail app',
+    contactFormNote: 'The button opens your default mail app.',
+    contactFormStatus:
+      'Your mail app has been opened. Review the message and send it when ready.',
+    contactMailSenderLabel: 'Reply email',
     footer: 'Made by Sangsun Kim',
   },
   de: {
@@ -316,7 +358,7 @@ export const translations = {
     blogDescription:
       'Ein Bereich, in dem ich neue Erkenntnisse, Lernnotizen und Retrospektiven aus der Entwicklung sammle.',
     blogLinkLabel: 'Blog',
-    studyLogLinkLabel: 'Techniklog',
+    studyLogLinkLabel: 'Technikblog',
     certIssueNumber: 'Nummer',
     certIssueDate: 'Datum',
     highlights: [
@@ -331,6 +373,27 @@ export const translations = {
     ],
     contactKicker: 'Get In Touch',
     contactTitle: 'Contact',
+    contactLinksLabel: 'Kontaktlinks',
+    contactLinkLabels: {
+      email: 'E-Mail',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      baekjoon: 'Baekjoon',
+    },
+    contactFormTitle: 'Nachricht senden',
+    contactFormDescription:
+      'Die Angaben werden in der Standard-Mail-App deines Geräts geöffnet.',
+    contactEmailLabel: 'E-Mail',
+    contactEmailPlaceholder: 'Deine E-Mail für die Antwort',
+    contactSubjectLabel: 'Betreff',
+    contactSubjectPlaceholder: 'Worum geht es?',
+    contactMessageLabel: 'Nachricht',
+    contactMessagePlaceholder: 'Schreibe deine Nachricht',
+    contactSubmitLabel: 'Mail-App öffnen',
+    contactFormNote: 'Die Schaltfläche öffnet deine Standard-Mail-App.',
+    contactFormStatus:
+      'Die Mail-App wurde geöffnet. Bitte prüfe die Nachricht und sende sie ab.',
+    contactMailSenderLabel: 'Antwort-E-Mail',
     footer: 'Made by Sangsun Kim',
   },
 };

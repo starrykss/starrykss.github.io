@@ -165,7 +165,7 @@
                 target="_blank"
                 rel="noreferrer"
               >
-                <span id="study-log-link-label">Tech Log</span>
+                <span id="study-log-link-label">기술 블로그</span>
               </a>
             </div>
           </article>
@@ -179,58 +179,149 @@
             </div>
           </div>
 
-          <div class="contact-grid">
-            <a class="contact-item" href="mailto:dev.snykim@gmail.com">
-              <span
-                class="contact-icon contact-icon-email"
-                aria-hidden="true"
-              ></span>
-              <span class="contact-copy">
-                <strong>dev.snykim@gmail.com</strong>
-              </span>
-            </a>
-            <a
-              class="contact-item"
-              href="https://github.com/starrykss"
-              target="_blank"
-              rel="noreferrer"
+          <div class="contact-layout">
+            <div
+              class="contact-links"
+              id="contact-links"
+              aria-label="연락처 링크"
             >
-              <span
-                class="contact-icon contact-icon-github"
-                aria-hidden="true"
-              ></span>
-              <span class="contact-copy">
-                <strong>github.com/starrykss</strong>
-              </span>
-            </a>
-            <a
-              class="contact-item"
-              href="https://www.linkedin.com/in/starrykss"
-              target="_blank"
-              rel="noreferrer"
+              <a class="contact-item" href="mailto:dev.snykim@gmail.com">
+                <span
+                  class="contact-icon contact-icon-email"
+                  aria-hidden="true"
+                ></span>
+                <span class="contact-copy">
+                  <span class="contact-label-text" data-contact-label="email"
+                    >이메일</span
+                  >
+                  <strong>dev.snykim@gmail.com</strong>
+                </span>
+              </a>
+              <a
+                class="contact-item"
+                href="https://github.com/starrykss"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span
+                  class="contact-icon contact-icon-github"
+                  aria-hidden="true"
+                ></span>
+                <span class="contact-copy">
+                  <span class="contact-label-text" data-contact-label="github"
+                    >GitHub</span
+                  >
+                  <strong>github.com/starrykss</strong>
+                </span>
+              </a>
+              <a
+                class="contact-item"
+                href="https://www.linkedin.com/in/starrykss"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span
+                  class="contact-icon contact-icon-linkedin"
+                  aria-hidden="true"
+                ></span>
+                <span class="contact-copy">
+                  <span
+                    class="contact-label-text"
+                    data-contact-label="linkedin"
+                    >LinkedIn</span
+                  >
+                  <strong>linkedin.com/in/starrykss</strong>
+                </span>
+              </a>
+              <a
+                class="contact-item"
+                href="https://www.acmicpc.net/user/starrykss"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span
+                  class="contact-icon contact-icon-code"
+                  aria-hidden="true"
+                ></span>
+                <span class="contact-copy">
+                  <span
+                    class="contact-label-text"
+                    data-contact-label="baekjoon"
+                    >백준</span
+                  >
+                  <strong>acmicpc.net/user/starrykss</strong>
+                </span>
+              </a>
+            </div>
+
+            <form
+              class="contact-form"
+              id="contact-form"
+              aria-labelledby="contact-form-title"
+              aria-describedby="contact-form-description"
             >
-              <span
-                class="contact-icon contact-icon-linkedin"
-                aria-hidden="true"
-              ></span>
-              <span class="contact-copy">
-                <strong>linkedin.com/in/starrykss</strong>
-              </span>
-            </a>
-            <a
-              class="contact-item"
-              href="https://www.acmicpc.net/user/starrykss"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span
-                class="contact-icon contact-icon-code"
-                aria-hidden="true"
-              ></span>
-              <span class="contact-copy">
-                <strong>acmicpc.net/user/starrykss</strong>
-              </span>
-            </a>
+              <div class="contact-form-head">
+                <h3 id="contact-form-title">간단한 문의</h3>
+                <p class="muted" id="contact-form-description">
+                  내용을 작성하면 사용 중인 기기의 기본 메일 앱으로 연결됩니다.
+                </p>
+              </div>
+
+              <div class="contact-fields">
+                <label class="contact-field" for="contact-email">
+                  <span id="contact-email-label">이메일</span>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="254"
+                    placeholder="회신받을 이메일을 입력해주세요"
+                    required
+                  />
+                </label>
+                <label class="contact-field" for="contact-subject">
+                  <span id="contact-subject-label">제목</span>
+                  <input
+                    id="contact-subject"
+                    name="subject"
+                    type="text"
+                    maxlength="120"
+                    placeholder="문의 제목을 입력해주세요"
+                    required
+                  />
+                </label>
+                <label class="contact-field" for="contact-message">
+                  <span id="contact-message-label">내용</span>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="6"
+                    maxlength="2000"
+                    placeholder="문의 내용을 입력해주세요"
+                    required
+                  ></textarea>
+                </label>
+              </div>
+
+              <div class="contact-form-actions">
+                <button
+                  class="button button-primary contact-submit"
+                  type="submit"
+                >
+                  <span id="contact-submit-label">메일 앱에서 보내기</span>
+                  <span class="contact-submit-icon" aria-hidden="true"></span>
+                </button>
+                <p class="contact-form-note muted" id="contact-form-note">
+                  전송 버튼을 누르면 기본 메일 앱이 열립니다.
+                </p>
+              </div>
+              <p
+                class="contact-form-status"
+                id="contact-form-status"
+                aria-live="polite"
+              ></p>
+            </form>
           </div>
         </section>
       </main>

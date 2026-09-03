@@ -81,6 +81,22 @@ const elements = {
   studyLogLinkLabel: document.getElementById('study-log-link-label'),
   contactKicker: document.getElementById('contact-kicker'),
   contactTitle: document.getElementById('contact-title'),
+  contactLinks: document.getElementById('contact-links'),
+  contactLabels: document.querySelectorAll('[data-contact-label]'),
+  contactForm: document.getElementById('contact-form'),
+  contactFormTitle: document.getElementById('contact-form-title'),
+  contactFormDescription: document.getElementById(
+    'contact-form-description',
+  ),
+  contactEmailLabel: document.getElementById('contact-email-label'),
+  contactEmail: document.getElementById('contact-email'),
+  contactSubjectLabel: document.getElementById('contact-subject-label'),
+  contactSubject: document.getElementById('contact-subject'),
+  contactMessageLabel: document.getElementById('contact-message-label'),
+  contactMessage: document.getElementById('contact-message'),
+  contactSubmitLabel: document.getElementById('contact-submit-label'),
+  contactFormNote: document.getElementById('contact-form-note'),
+  contactFormStatus: document.getElementById('contact-form-status'),
 };
 
 let currentLang = localStorage.getItem('github-home-lang') || 'ko';
@@ -300,6 +316,7 @@ function registerMotionTargets() {
     stagger: 70,
     maxDelay: 210,
   });
+  observeRevealTarget(document.querySelector('.contact-form'), 'right', 100);
 }
 
 function initializeScrollMotion() {
@@ -428,6 +445,21 @@ function setLanguage(lang) {
   elements.studyLogLinkLabel.textContent = t.studyLogLinkLabel;
   elements.contactKicker.textContent = t.contactKicker;
   elements.contactTitle.textContent = t.contactTitle;
+  elements.contactLinks.setAttribute('aria-label', t.contactLinksLabel);
+  elements.contactLabels.forEach((node) => {
+    node.textContent = t.contactLinkLabels[node.dataset.contactLabel];
+  });
+  elements.contactFormTitle.textContent = t.contactFormTitle;
+  elements.contactFormDescription.textContent = t.contactFormDescription;
+  elements.contactEmailLabel.textContent = t.contactEmailLabel;
+  elements.contactEmail.placeholder = t.contactEmailPlaceholder;
+  elements.contactSubjectLabel.textContent = t.contactSubjectLabel;
+  elements.contactSubject.placeholder = t.contactSubjectPlaceholder;
+  elements.contactMessageLabel.textContent = t.contactMessageLabel;
+  elements.contactMessage.placeholder = t.contactMessagePlaceholder;
+  elements.contactSubmitLabel.textContent = t.contactSubmitLabel;
+  elements.contactFormNote.textContent = t.contactFormNote;
+  elements.contactFormStatus.textContent = '';
   languageButtons.forEach((button) => {
     button.classList.toggle('is-active', button.dataset.lang === lang);
   });
@@ -519,6 +551,22 @@ function requestScrollInterfaceUpdate() {
   window.requestAnimationFrame(syncScrollInterface);
 }
 
+function handleContactSubmit(event) {
+  event.preventDefault();
+
+  if (!elements.contactForm.reportValidity()) return;
+
+  const senderEmail = elements.contactEmail.value.trim();
+  const subject = elements.contactSubject.value.trim();
+  const message = elements.contactMessage.value.trim().replace(/\r?\n/g, '\r\n');
+  const t = translations[currentLang];
+  const body = `${t.contactMailSenderLabel}: ${senderEmail}\r\n\r\n${message}`;
+  const mailtoUrl = `mailto:dev.snykim@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  elements.contactFormStatus.textContent = t.contactFormStatus;
+  window.location.href = mailtoUrl;
+}
+
 languageButtons.forEach((button) => {
   button.addEventListener('click', () => setLanguage(button.dataset.lang));
 });
@@ -541,6 +589,10 @@ if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
   });
+}
+
+if (elements.contactForm) {
+  elements.contactForm.addEventListener('submit', handleContactSubmit);
 }
 
 window.addEventListener('scroll', requestScrollInterfaceUpdate, {
