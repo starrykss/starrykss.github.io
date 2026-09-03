@@ -50,7 +50,6 @@ const elements = {
   metaDescription: document.querySelector('meta[name="description"]'),
   nav: document.querySelectorAll('.nav a'),
   heroEyebrow: document.getElementById('hero-eyebrow'),
-  heroDescription: document.getElementById('hero-description'),
   heroActions: document.querySelectorAll('.hero-actions a'),
   aboutKicker: document.getElementById('about-kicker'),
   aboutTitle: document.getElementById('about-title'),
@@ -277,7 +276,6 @@ function observeRevealGroup(
 
 function registerMotionTargets() {
   observeRevealTarget(document.querySelector('.hero-top-box'), 'up', 40);
-  observeRevealTarget(document.querySelector('.hero-bottom-box'), 'up', 140);
 
   document.querySelectorAll('#about > .card').forEach((target, index) => {
     observeRevealTarget(target, index === 0 ? 'left' : 'right', index * 90);
@@ -406,7 +404,6 @@ function setLanguage(lang) {
     node.textContent = t.nav[index];
   });
   elements.heroEyebrow.textContent = t.heroEyebrow;
-  elements.heroDescription.textContent = t.heroDescription;
   elements.heroActions.forEach((node, index) => {
     node.textContent = t.heroActions[index];
   });
