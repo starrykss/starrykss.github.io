@@ -524,7 +524,7 @@ img { display: block; max-width: 100%; }
 }
 
 .section-kicker::before {
-  content: '//';
+  content: '#';
   margin-right: 0.6em;
   opacity: 0.55;
 }
