@@ -209,18 +209,6 @@ export const certificateItems = [
   },
   {
     title: {
-      ko: 'Understanding TypeScript',
-      en: 'Understanding TypeScript',
-      de: 'Understanding TypeScript',
-    },
-    issuer: 'Udemy',
-    issueNumber: 'UC-47623936-7215-46c3-8a35-7561e7fc08ec',
-    issueDate: '2024.06.01',
-    image: './assets/images/certificate/kdata.png',
-    url: 'https://www.udemy.com/certificate/UC-47623936-7215-46c3-8a35-7561e7fc08ec/',
-  },
-  {
-    title: {
       ko: 'TOEIC (880/990)',
       en: 'Test Of English for International Communication',
       de: 'Test Of English for International Communication',
