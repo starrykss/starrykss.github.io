@@ -217,7 +217,7 @@ export const courseItems = [
     period: '2024.08.09 - 2024.12.01',
     completedDate: '2024.12.01',
     description: {
-      ko: '약 4개월 동안 CEFR 기준에 따라 진행되는 독일어 온라인 강의를 수강하며 말하기, 듣기, 쓰기, 읽기 전 영역을 학습했습니다.',
+      ko: '약 4개월 동안 CEFR A1 수준의 독일어 온라인 강의를 듣고 말하기, 듣기, 쓰기, 읽기를 연습했습니다.',
       en: 'Completed a 4-month online German course based on CEFR standards covering speaking, listening, writing, and reading.',
       de: 'Absolvierte einen viermonatigen Online-Deutschkurs nach CEFR-Standard mit Fokus auf Sprechen, Hören, Schreiben und Lesen.',
     },
@@ -233,7 +233,7 @@ export const courseItems = [
     period: '2024.08.27 - 2024.11.20',
     completedDate: '2024.11.20',
     description: {
-      ko: '약 95시간 동안 React.js, Redux, Next.js, TypeScript, Styled Components 등을 활용해 27개의 프로젝트를 제작한 부트캠프입니다.',
+      ko: '약 95시간 동안 React.js, Redux, Next.js, TypeScript, Styled Components로 프로젝트 27개를 만들었습니다.',
       en: 'A 95-hour bootcamp covering React.js, Redux, Next.js, TypeScript, and Styled Components through 27 projects.',
       de: 'Ein 95-stündiges Bootcamp zu React.js, Redux, Next.js, TypeScript und Styled Components mit 27 Projekten.',
     },
@@ -249,7 +249,7 @@ export const courseItems = [
     period: '2024.05.01 - 2024.08.25',
     completedDate: '2024.08.25',
     description: {
-      ko: '약 69시간 동안 React.js, Redux, Next.js를 학습하고 여러 미니 프로젝트를 진행한 강의입니다.',
+      ko: '약 69시간 동안 React.js, Redux, Next.js를 배우고 작은 프로젝트를 만들며 실습했습니다.',
       en: 'A 69-hour course focused on React.js, Redux, and Next.js with multiple mini projects.',
       de: 'Ein 69-stündiger Kurs zu React.js, Redux und Next.js mit mehreren Mini-Projekten.',
     },
@@ -265,7 +265,7 @@ export const courseItems = [
     period: '2023.10.24 - 2024.01.15',
     completedDate: '2024.01.15',
     description: {
-      ko: '약 62시간 동안 React.js, Node.js 등 프론트엔드와 백엔드 기술을 학습하고 미니 프로젝트를 진행한 부트캠프입니다.',
+      ko: '약 62시간 동안 React.js, Node.js 등 프론트엔드와 백엔드 기술을 배우고 작은 프로젝트로 실습했습니다.',
       en: 'A 62-hour bootcamp covering frontend and backend technologies such as React.js and Node.js with mini projects.',
       de: 'Ein 62-stündiges Bootcamp zu Frontend- und Backend-Technologien wie React.js und Node.js mit Mini-Projekten.',
     },
@@ -281,7 +281,7 @@ export const courseItems = [
     period: '2025.02.01 - 2026.01.21',
     completedDate: '2026.01.21',
     description: {
-      ko: '약 29시간 동안 React Native를 기반으로 크로스 플랫폼 모바일 앱 개발 흐름, 네이티브 기능 연동, 화면 구성, 상태 관리 등을 학습한 과정입니다.',
+      ko: '약 29시간 동안 React Native로 크로스 플랫폼 앱을 만드는 방법과 화면 구성, 상태 관리, 네이티브 기능 연동을 배웠습니다.',
       en: 'A 29-hour course focused on cross-platform mobile app development with React Native, including UI composition, state management, and native integration.',
       de: 'Ein 29-stündiger Kurs zu plattformübergreifender mobiler App-Entwicklung mit React Native, einschließlich UI-Aufbau, State-Management und nativer Integration.',
     },
@@ -297,7 +297,7 @@ export const courseItems = [
     period: '2026.01.11 - 2026.03.23',
     completedDate: '2026.03.23',
     description: {
-      ko: '약 30시간 동안 Flutter와 Dart를 활용해 멀티 플랫폼 앱 구조, 위젯 기반 UI 설계, 상태 관리, 앱 실행 흐름을 학습한 과정입니다.',
+      ko: '약 30시간 동안 Flutter와 Dart로 여러 플랫폼에서 동작하는 앱의 구조를 배웠습니다. 위젯을 이용한 화면 구성, 상태 관리, 앱 실행 과정도 익혔습니다.',
       en: 'A 30-hour course covering Flutter and Dart for multi-platform app structure, widget-based UI design, state management, and application flow.',
       de: 'Ein 30-stündiger Kurs zu Flutter und Dart mit Fokus auf Multi-Plattform-App-Struktur, widgetbasiertes UI-Design, State-Management und App-Ablauf.',
     },
@@ -313,7 +313,7 @@ export const courseItems = [
     period: '2026.03.28 - 2026.05.19',
     completedDate: '2026.05.19',
     description: {
-      ko: '약 23시간 동안 TypeScript의 기본 개념, 고급 타입, 제네릭, 인터페이스, 클래스, 모듈, 컴파일 설정을 학습하고 React 및 Node.js 환경에서 타입 안전한 JavaScript 애플리케이션을 개발하는 과정입니다.',
+      ko: '약 23시간 동안 TypeScript의 기본 문법과 고급 타입, 제네릭, 인터페이스, 클래스, 모듈, 컴파일 설정을 배웠습니다. React와 Node.js 프로젝트에 타입을 적용하는 방법도 익혔습니다.',
       en: 'A 23-hour course covering TypeScript fundamentals, advanced types, generics, interfaces, classes, modules, and compiler configuration while applying type-safe JavaScript development with React and Node.js.',
       de: 'Ein 23-stündiger Kurs zu TypeScript-Grundlagen, erweiterten Typen, Generics, Interfaces, Klassen, Modulen und Compiler-Konfiguration mit Anwendung in typsicherer JavaScript-Entwicklung mit React und Node.js.',
     },
@@ -329,11 +329,27 @@ export const courseItems = [
     period: '2026.05.23 - 2026.06.14',
     completedDate: '2026.06.14',
     description: {
-      ko: '약 18시간 동안 Flutter와 Dart 기반 앱 개발을 학습하며 프로젝트 구조, 위젯 기반 UI, Firebase 연동, 애니메이션, Provider/BLoC/GetX 상태 관리, 웹/모바일 앱 제작 흐름을 다룬 과정입니다.',
+      ko: '약 18시간 동안 Flutter와 Dart로 웹·모바일 앱을 만드는 방법을 배웠습니다. 프로젝트 구조, 위젯을 이용한 화면 구성, Firebase 연동, 애니메이션, Provider·BLoC·GetX를 이용한 상태 관리를 익혔습니다.',
       en: 'An approximately 18-hour Udemy course covering Flutter and Dart app development, including project structure, widget-based UI, Firebase integration, animations, Provider/BLoC/GetX state management, and web/mobile app workflows.',
       de: 'Ein etwa 18-stundiger Udemy-Kurs zur App-Entwicklung mit Flutter und Dart, einschliesslich Projektstruktur, widgetbasierter UI, Firebase-Integration, Animationen, Provider/BLoC/GetX-State-Management und Web-/Mobile-App-Workflows.',
     },
     url: 'https://www.udemy.com/certificate/UC-4b1f4a4a-8d9b-4969-961f-34445a030127/',
+  },
+  {
+    title: {
+      ko: 'The Complete Flutter Development Bootcamp with Dart',
+      en: 'The Complete Flutter Development Bootcamp with Dart',
+      de: 'The Complete Flutter Development Bootcamp with Dart',
+    },
+    provider: 'Udemy',
+    period: '2026.06.18 - 2026.09.06',
+    completedDate: '2026.09.06',
+    description: {
+      ko: '약 29시간 동안 Dart 문법·객체지향 프로그래밍·비동기 처리와 Flutter 위젯, Provider 상태 관리, 애니메이션, API·Firebase 연동, 사용자 인증을 배웠습니다.',
+      en: 'An approximately 29-hour course covering Dart syntax, OOP, and asynchronous programming, plus Flutter widget-based UI, Provider state management, animations, API and Firebase integration, and user authentication.',
+      de: 'Ein etwa 29-stündiger Kurs zu Dart-Syntax, OOP und asynchroner Programmierung sowie Flutter-Widget-UIs, Zustandsverwaltung mit Provider, Animationen, API- und Firebase-Integration und Benutzerauthentifizierung.',
+    },
+    url: 'https://www.udemy.com/certificate/UC-82cc2b98-dc61-47af-b4a8-b35bb1ead955/',
   },
   {
     title: {
@@ -345,7 +361,7 @@ export const courseItems = [
     period: '2023.04.03 - 2023.09.19',
     completedDate: '2023.09.19',
     description: {
-      ko: 'AI, 디지털, 데이터 중심 교육 커리큘럼을 통해 프로젝트를 수행하며 실무 감각과 인공지능 관련 역량을 쌓은 과정입니다.',
+      ko: 'AI와 데이터 관련 기술을 배우고 프로젝트에 적용했습니다.',
       en: 'A training program focused on AI, digital, and data projects to build practical skills and AI foundations.',
       de: 'Ein Trainingsprogramm zu AI, Digital und Data, das praktische Erfahrung und Grundlagen in künstlicher Intelligenz vermittelte.',
     },
@@ -361,7 +377,7 @@ export const courseItems = [
     period: '2022.05.08 - 2022.06.05',
     completedDate: '2022.06.05',
     description: {
-      ko: '약 5주 동안 현업 개발자 멘토와 함께 Google Dialogflow 기반 챗봇 서비스를 기획, 설계, 구현한 과정입니다.',
+      ko: '약 5주 동안 현업 개발자의 멘토링을 받으며 Google Dialogflow로 챗봇을 기획하고 설계·구현했습니다.',
       en: 'A 5-week training focused on planning, designing, and building a chatbot service with Google Dialogflow.',
       de: 'Ein 5-wöchiger Kurs zur Planung, Gestaltung und Umsetzung eines Chatbot-Services mit Google Dialogflow.',
     },
@@ -377,7 +393,7 @@ export const courseItems = [
     period: '2021.07.15 - 2021.09.01',
     completedDate: '2021.09.01',
     description: {
-      ko: '네이버 부스트코스의 온택트 부트캠프로, Python for Everyone 강의와 팀 미션, 코치 피드백, 현업 개발자 라이브 강의를 함께 수행했습니다.',
+      ko: '네이버 부스트코스에서 Python for Everyone 강의와 현업 개발자의 실시간 강의를 듣고, 코치의 피드백을 받으며 팀 과제를 수행했습니다.',
       en: 'An on-tact bootcamp by Naver Boostcourse combining Python for Everyone lectures, team missions, coaching feedback, and live developer sessions.',
       de: 'Ein Online-Bootcamp von Naver Boostcourse mit Python-for-Everyone-Lektionen, Team-Missionen, Coach-Feedback und Live-Sessions von Entwicklern.',
     },

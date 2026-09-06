@@ -37,7 +37,7 @@ const sunIcon = `
   </svg>
 `;
 
-const courseCompletedIcon = `
+const calendarIcon = `
   <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
     <path
       d="M7.25 3.75a.75.75 0 0 1 .75.75v1h8v-1a.75.75 0 0 1 1.5 0v1h.75A2.75 2.75 0 0 1 21 9.25v8A2.75 2.75 0 0 1 18.25 20h-12.5A2.75 2.75 0 0 1 3 17.25v-8A2.75 2.75 0 0 1 5.75 6.5h.75v-1a.75.75 0 0 1 .75-.75Zm11.25 6H4.5v7.5c0 .69.56 1.25 1.25 1.25h12.5c.69 0 1.25-.56 1.25-1.25v-7.5Zm-12.75-1.75c-.69 0-1.25.56-1.25 1.25v.25h15v-.25c0-.69-.56-1.25-1.25-1.25h-12.5Z"
@@ -175,7 +175,7 @@ function buildCertificates(lang) {
   elements.certGrid.innerHTML = certificateItems
     .map(
       (item) =>
-        `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date">${item.issueDate}</span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
+        `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date"><span class="certificate-issued-date-icon">${calendarIcon}</span><span>${item.issueDate}</span></span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
     )
     .join('');
 }
@@ -218,16 +218,42 @@ function buildCourses(lang, emptyMessage) {
   elements.courseGrid.innerHTML = sortedCourseItems
     .map(
       (item) =>
-        `<li class="course-list-item"><a class="course-item" href="${item.url}" target="_blank" rel="noreferrer">${item.completedDate ? `<span class="course-completed-date"><span class="course-completed-date-icon">${courseCompletedIcon}</span><span>${item.completedDate}</span></span>` : '<span></span>'}<div class="course-content"><div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><p class="muted">${getCourseDescription(item)}</p></div><span class="course-period">${item.period}</span></a></li>`,
+        `<li class="course-list-item"><a class="course-item" href="${item.url}" target="_blank" rel="noreferrer">${item.completedDate ? `<span class="course-completed-date"><span class="course-completed-date-icon">${calendarIcon}</span><span>${item.completedDate}</span></span>` : '<span></span>'}<div class="course-content"><div class="course-provider">${item.provider}</div><h3 class="course-title">${item.title[lang]}</h3><p class="muted">${getCourseDescription(item)}</p></div><span class="course-period">${item.period}</span></a></li>`,
     )
     .join('');
 }
+
+const overviewIcons = {
+  Primary: `
+    <g class="overview-icon-monitor">
+      <rect x="2" y="4" width="14" height="11" rx="2" />
+      <path d="M9 15v4m-4 0h8" />
+    </g>
+    <g class="overview-icon-phone">
+      <rect x="16" y="9" width="6" height="12" rx="1.5" />
+      <path d="M18.5 18.5h1" />
+    </g>
+  `,
+  Tooling: `
+    <path class="overview-icon-code-left" d="m8 7-5 5 5 5" />
+    <path class="overview-icon-code-right" d="m16 7 5 5-5 5" />
+    <path class="overview-icon-code-slash" d="m14 4-4 16" />
+  `,
+  Expansion: `
+    <g class="overview-icon-rocket">
+      <path d="m12 16-4-4c1-3 3-5.5 5.5-7C16 3.5 18.5 3 21 3c0 2.5-.5 5-2 7.5C17.5 13 15 15 12 16Z" />
+      <circle cx="16" cy="8" r="2" />
+      <path d="m8 12-4 1 1-5 6-2m1 10-1 4 5-1 2-6" />
+    </g>
+    <path class="overview-icon-flame" d="M7 17c-2 0-3 1-3 3 2 0 3-1 3-3Z" />
+  `,
+};
 
 function buildOverview(items) {
   elements.overviewItems.innerHTML = items
     .map(
       ([label, text]) =>
-        `<div><span class="label">${label}</span><p>${text}</p></div>`,
+        `<div class="overview-item"><span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${overviewIcons[label] ?? ''}</svg></span><h3 class="overview-title">${label}</h3><p class="overview-description">${text}</p></div>`,
     )
     .join('');
 }
