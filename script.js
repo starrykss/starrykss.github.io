@@ -49,7 +49,6 @@ const courseCompletedIcon = `
 const elements = {
   metaDescription: document.querySelector('meta[name="description"]'),
   nav: document.querySelectorAll('.nav a'),
-  heroEyebrow: document.getElementById('hero-eyebrow'),
   heroActions: document.querySelectorAll('.hero-actions a'),
   aboutKicker: document.getElementById('about-kicker'),
   aboutTitle: document.getElementById('about-title'),
@@ -69,6 +68,8 @@ const elements = {
   certKicker: document.getElementById('cert-kicker'),
   certTitle: document.getElementById('cert-title'),
   certGrid: document.getElementById('certificate-grid'),
+  certViewToggle: document.getElementById('certificate-view-toggle'),
+  certViewButtons: document.querySelectorAll('[data-certificate-view]'),
   courseKicker: document.getElementById('course-kicker'),
   courseTitle: document.getElementById('course-title'),
   courseGrid: document.getElementById('course-grid'),
@@ -82,6 +83,10 @@ const elements = {
   contactTitle: document.getElementById('contact-title'),
   contactLinks: document.getElementById('contact-links'),
   contactLabels: document.querySelectorAll('[data-contact-label]'),
+  contactOpen: document.getElementById('contact-open'),
+  contactOpenLabel: document.getElementById('contact-open-label'),
+  contactSheet: document.getElementById('contact-sheet'),
+  contactSheetClose: document.getElementById('contact-sheet-close'),
   contactForm: document.getElementById('contact-form'),
   contactFormTitle: document.getElementById('contact-form-title'),
   contactFormDescription: document.getElementById(
@@ -103,6 +108,10 @@ let currentTheme = localStorage.getItem('github-home-theme') || 'light';
 let revealObserver = null;
 let observedRevealTargets = new WeakSet();
 let scrollUpdateQueued = false;
+let contactScrollY = 0;
+let contactSheetAnimation = null;
+let contactSheetClosing = false;
+let contactBackdropPointerDown = false;
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => {
@@ -169,6 +178,17 @@ function buildCertificates(lang) {
         `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date">${item.issueDate}</span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
     )
     .join('');
+}
+
+function setCertificateView(view) {
+  elements.certGrid.dataset.view = view;
+  elements.certViewButtons.forEach((button) => {
+    button.setAttribute(
+      'aria-pressed',
+      String(button.dataset.certificateView === view),
+    );
+  });
+  requestScrollInterfaceUpdate();
 }
 
 function buildCourses(lang, emptyMessage) {
@@ -313,7 +333,6 @@ function registerMotionTargets() {
     stagger: 70,
     maxDelay: 210,
   });
-  observeRevealTarget(document.querySelector('.contact-form'), 'right', 100);
 }
 
 function initializeScrollMotion() {
@@ -403,7 +422,6 @@ function setLanguage(lang) {
   elements.nav.forEach((node, index) => {
     node.textContent = t.nav[index];
   });
-  elements.heroEyebrow.textContent = t.heroEyebrow;
   elements.heroActions.forEach((node, index) => {
     node.textContent = t.heroActions[index];
   });
@@ -427,6 +445,14 @@ function setLanguage(lang) {
   buildTechStack(t.stackMainLabel);
   elements.certKicker.textContent = t.certKicker;
   elements.certTitle.textContent = t.certTitle;
+  elements.certViewToggle.setAttribute('aria-label', t.certViewLabel);
+  elements.certViewButtons.forEach((button) => {
+    const label = button.dataset.certificateView === 'mini'
+      ? t.certViewMini
+      : t.certViewList;
+    button.setAttribute('aria-label', label);
+    button.title = label;
+  });
   buildCertificates(lang);
   elements.courseKicker.textContent = t.courseKicker;
   elements.courseTitle.textContent = t.courseTitle;
@@ -447,6 +473,8 @@ function setLanguage(lang) {
   });
   elements.contactFormTitle.textContent = t.contactFormTitle;
   elements.contactFormDescription.textContent = t.contactFormDescription;
+  elements.contactOpenLabel.textContent = t.contactOpenLabel;
+  elements.contactSheetClose.setAttribute('aria-label', t.contactCloseLabel);
   elements.contactEmailLabel.textContent = t.contactEmailLabel;
   elements.contactEmail.placeholder = t.contactEmailPlaceholder;
   elements.contactSubjectLabel.textContent = t.contactSubjectLabel;
@@ -546,6 +574,51 @@ function requestScrollInterfaceUpdate() {
   window.requestAnimationFrame(syncScrollInterface);
 }
 
+function openContactSheet() {
+  if (elements.contactSheet.open || contactSheetClosing) return;
+
+  contactScrollY = window.scrollY;
+  document.body.style.top = `-${contactScrollY}px`;
+  root.classList.add('contact-sheet-open');
+  elements.contactSheet.showModal();
+  elements.contactOpen.setAttribute('aria-expanded', 'true');
+  elements.contactForm.scrollTop = 0;
+
+  if (!motionPreference.matches) {
+    contactSheetAnimation = elements.contactSheet.animate(
+      [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
+      { duration: 320, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' },
+    );
+  }
+}
+
+async function closeContactSheet() {
+  if (!elements.contactSheet.open || contactSheetClosing) return;
+
+  contactSheetClosing = true;
+  const currentTransform = getComputedStyle(elements.contactSheet).transform;
+  contactSheetAnimation?.cancel();
+  elements.contactSheet.classList.add('is-closing');
+
+  if (!motionPreference.matches) {
+    contactSheetAnimation = elements.contactSheet.animate(
+      [{ transform: currentTransform }, { transform: 'translateY(100%)' }],
+      { duration: 200, easing: 'ease-in', fill: 'forwards' },
+    );
+    await contactSheetAnimation.finished.catch(() => {});
+  }
+
+  elements.contactSheet.close();
+}
+
+function isContactSheetBackdrop(event) {
+  const bounds = elements.contactSheet.getBoundingClientRect();
+  return event.target === elements.contactSheet && (
+    event.clientX < bounds.left || event.clientX > bounds.right ||
+    event.clientY < bounds.top || event.clientY > bounds.bottom
+  );
+}
+
 function handleContactSubmit(event) {
   event.preventDefault();
 
@@ -564,6 +637,12 @@ function handleContactSubmit(event) {
 
 languageButtons.forEach((button) => {
   button.addEventListener('click', () => setLanguage(button.dataset.lang));
+});
+
+elements.certViewButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    setCertificateView(button.dataset.certificateView);
+  });
 });
 
 if (floatingLanguageTrigger && floatingLanguage) {
@@ -589,6 +668,52 @@ if (themeToggle) {
 if (elements.contactForm) {
   elements.contactForm.addEventListener('submit', handleContactSubmit);
 }
+
+elements.contactOpen.addEventListener('click', openContactSheet);
+elements.contactSheetClose.addEventListener('click', closeContactSheet);
+elements.contactSheet.addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeContactSheet();
+});
+elements.contactSheet.addEventListener('keydown', (event) => {
+  if (event.key !== 'Tab') return;
+
+  const focusable = elements.contactSheet.querySelectorAll(
+    'button:not([disabled]), input:not([disabled]), textarea:not([disabled])',
+  );
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+elements.contactSheet.addEventListener('pointerdown', (event) => {
+  contactBackdropPointerDown = isContactSheetBackdrop(event);
+});
+elements.contactSheet.addEventListener('click', (event) => {
+  if (contactBackdropPointerDown && isContactSheetBackdrop(event)) {
+    closeContactSheet();
+  }
+  contactBackdropPointerDown = false;
+});
+elements.contactSheet.addEventListener('close', () => {
+  contactSheetAnimation?.cancel();
+  contactSheetAnimation = null;
+  contactSheetClosing = false;
+  contactBackdropPointerDown = false;
+  elements.contactSheet.classList.remove('is-closing');
+  root.classList.remove('contact-sheet-open');
+  document.body.style.top = '';
+  window.scrollTo({ top: contactScrollY, behavior: 'instant' });
+  elements.contactOpen.setAttribute('aria-expanded', 'false');
+  elements.contactOpen.focus({ preventScroll: true });
+  requestScrollInterfaceUpdate();
+});
 
 window.addEventListener('scroll', requestScrollInterfaceUpdate, {
   passive: true,

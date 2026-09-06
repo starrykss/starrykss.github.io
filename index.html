@@ -35,9 +35,6 @@
       <main class="content">
         <section class="hero card card-accent" id="home">
           <div class="hero-top-box">
-            <p class="hero-eyebrow-bar" id="hero-eyebrow">
-              Software Engineer · AI Focus · Seoul
-            </p>
             <div class="hero-top">
               <div class="hero-media">
                 <div class="avatar-ring">
@@ -110,8 +107,44 @@
               <p class="section-kicker" id="cert-kicker">Credentials</p>
               <h2 id="cert-title">Certificate</h2>
             </div>
+            <div
+              class="certificate-view-toggle"
+              id="certificate-view-toggle"
+              role="group"
+              aria-label="자격증 보기 방식"
+            >
+              <button
+                class="certificate-view-button"
+                type="button"
+                data-certificate-view="mini"
+                aria-controls="certificate-grid"
+                aria-pressed="true"
+                aria-label="미니카드 보기"
+                title="미니카드 보기"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+              </button>
+              <button
+                class="certificate-view-button"
+                type="button"
+                data-certificate-view="list"
+                aria-controls="certificate-grid"
+                aria-pressed="false"
+                aria-label="리스트 보기"
+                title="리스트 보기"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div class="certificate-grid" id="certificate-grid"></div>
+          <div class="certificate-grid" id="certificate-grid" data-view="mini"></div>
         </section>
 
         <section class="card" id="courses">
@@ -170,152 +203,180 @@
               <p class="section-kicker" id="contact-kicker">Get In Touch</p>
               <h2 id="contact-title">Contact</h2>
             </div>
+            <button
+              class="button button-primary contact-open"
+              id="contact-open"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="contact-sheet"
+              aria-expanded="false"
+            >
+              <span id="contact-open-label">문의하기</span>
+              <span class="contact-submit-icon" aria-hidden="true"></span>
+            </button>
           </div>
 
-          <div class="contact-layout">
-            <div
-              class="contact-links"
-              id="contact-links"
-              aria-label="연락처 링크"
-            >
-              <a class="contact-item" href="mailto:dev.snykim@gmail.com">
-                <span
-                  class="contact-icon contact-icon-email"
-                  aria-hidden="true"
-                ></span>
-                <span class="contact-copy">
-                  <span class="contact-label-text" data-contact-label="email"
-                    >이메일</span
-                  >
-                  <strong>dev.snykim@gmail.com</strong>
-                </span>
-              </a>
-              <a
-                class="contact-item"
-                href="https://github.com/starrykss"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span
-                  class="contact-icon contact-icon-github"
-                  aria-hidden="true"
-                ></span>
-                <span class="contact-copy">
-                  <span class="contact-label-text" data-contact-label="github"
-                    >GitHub</span
-                  >
-                  <strong>github.com/starrykss</strong>
-                </span>
-              </a>
-              <a
-                class="contact-item"
-                href="https://www.linkedin.com/in/starrykss"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span
-                  class="contact-icon contact-icon-linkedin"
-                  aria-hidden="true"
-                ></span>
-                <span class="contact-copy">
-                  <span
-                    class="contact-label-text"
-                    data-contact-label="linkedin"
-                    >LinkedIn</span
-                  >
-                  <strong>linkedin.com/in/starrykss</strong>
-                </span>
-              </a>
-              <a
-                class="contact-item"
-                href="https://www.acmicpc.net/user/starrykss"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span
-                  class="contact-icon contact-icon-code"
-                  aria-hidden="true"
-                ></span>
-                <span class="contact-copy">
-                  <span
-                    class="contact-label-text"
-                    data-contact-label="baekjoon"
-                    >Baekjoon Online Judge</span
-                  >
-                  <strong>acmicpc.net/user/starrykss</strong>
-                </span>
-              </a>
-            </div>
-
-            <form
-              class="contact-form"
-              id="contact-form"
-              aria-labelledby="contact-form-title"
-              aria-describedby="contact-form-description"
-            >
-              <div class="contact-form-head">
-                <h3 id="contact-form-title">문의</h3>
-                <p class="muted" id="contact-form-description">
-                  언제든지 문의주세요!
-                </p>
-              </div>
-
-              <div class="contact-fields">
-                <label class="contact-field" for="contact-email">
-                  <span id="contact-email-label">이메일</span>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    maxlength="254"
-                    placeholder="회신받을 이메일을 입력해주세요"
-                    required
-                  />
-                </label>
-                <label class="contact-field" for="contact-subject">
-                  <span id="contact-subject-label">제목</span>
-                  <input
-                    id="contact-subject"
-                    name="subject"
-                    type="text"
-                    maxlength="120"
-                    placeholder="문의 제목을 입력해주세요"
-                    required
-                  />
-                </label>
-                <label class="contact-field" for="contact-message">
-                  <span id="contact-message-label">내용</span>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    rows="6"
-                    maxlength="2000"
-                    placeholder="문의 내용을 입력해주세요"
-                    required
-                  ></textarea>
-                </label>
-              </div>
-
-              <div class="contact-form-actions">
-                <button
-                  class="button button-primary contact-submit"
-                  type="submit"
+          <div
+            class="contact-links"
+            id="contact-links"
+            aria-label="연락처 링크"
+          >
+            <a class="contact-item" href="mailto:dev.snykim@gmail.com">
+              <span
+                class="contact-icon contact-icon-email"
+                aria-hidden="true"
+              ></span>
+              <span class="contact-copy">
+                <span class="contact-label-text" data-contact-label="email"
+                  >이메일</span
                 >
-                  <span id="contact-submit-label">보내기</span>
-                  <span class="contact-submit-icon" aria-hidden="true"></span>
-                </button>
-              </div>
-              <p
-                class="contact-form-status"
-                id="contact-form-status"
-                aria-live="polite"
-              ></p>
-            </form>
+                <strong>dev.snykim@gmail.com</strong>
+              </span>
+            </a>
+            <a
+              class="contact-item"
+              href="https://github.com/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span
+                class="contact-icon contact-icon-github"
+                aria-hidden="true"
+              ></span>
+              <span class="contact-copy">
+                <span class="contact-label-text" data-contact-label="github"
+                  >GitHub</span
+                >
+                <strong>github.com/starrykss</strong>
+              </span>
+            </a>
+            <a
+              class="contact-item"
+              href="https://www.linkedin.com/in/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span
+                class="contact-icon contact-icon-linkedin"
+                aria-hidden="true"
+              ></span>
+              <span class="contact-copy">
+                <span
+                  class="contact-label-text"
+                  data-contact-label="linkedin"
+                  >LinkedIn</span
+                >
+                <strong>linkedin.com/in/starrykss</strong>
+              </span>
+            </a>
+            <a
+              class="contact-item"
+              href="https://www.acmicpc.net/user/starrykss"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span
+                class="contact-icon contact-icon-code"
+                aria-hidden="true"
+              ></span>
+              <span class="contact-copy">
+                <span
+                  class="contact-label-text"
+                  data-contact-label="baekjoon"
+                  >Baekjoon Online Judge</span
+                >
+                <strong>acmicpc.net/user/starrykss</strong>
+              </span>
+            </a>
           </div>
         </section>
       </main>
     </div>
+
+    <dialog
+      class="contact-sheet"
+      id="contact-sheet"
+      aria-labelledby="contact-form-title"
+      aria-describedby="contact-form-description"
+    >
+      <div class="contact-sheet-head">
+        <div class="contact-form-head">
+          <h2 id="contact-form-title">문의하기</h2>
+          <p class="muted" id="contact-form-description">
+            언제든지 문의주세요!
+          </p>
+        </div>
+        <button
+          class="contact-sheet-close"
+          id="contact-sheet-close"
+          type="button"
+          aria-label="문의하기 닫기"
+          autofocus
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+      <form
+        class="contact-form"
+        id="contact-form"
+        aria-labelledby="contact-form-title"
+        aria-describedby="contact-form-description"
+      >
+        <div class="contact-fields">
+          <label class="contact-field" for="contact-email">
+            <span id="contact-email-label">이메일</span>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="254"
+              placeholder="회신받을 이메일을 입력해주세요"
+              required
+            />
+          </label>
+          <label class="contact-field" for="contact-subject">
+            <span id="contact-subject-label">제목</span>
+            <input
+              id="contact-subject"
+              name="subject"
+              type="text"
+              maxlength="120"
+              placeholder="문의 제목을 입력해주세요"
+              required
+            />
+          </label>
+          <label class="contact-field" for="contact-message">
+            <span id="contact-message-label">내용</span>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="6"
+              maxlength="2000"
+              placeholder="문의 내용을 입력해주세요"
+              required
+            ></textarea>
+          </label>
+        </div>
+
+        <div class="contact-form-actions">
+          <button
+            class="button button-primary contact-submit"
+            type="submit"
+          >
+            <span id="contact-submit-label">보내기</span>
+            <span class="contact-submit-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p
+          class="contact-form-status"
+          id="contact-form-status"
+          aria-live="polite"
+        ></p>
+      </form>
+    </dialog>
 
     <div class="floating-tools">
       <button
