@@ -649,6 +649,143 @@ img { display: block; max-width: 100%; }
 .profile-role { margin-top: 12px; font-size: 1.05rem; font-weight: 700; }
 .profile-name { margin-top: 8px; color: var(--muted); }
 
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.github-activity {
+  --github-level-0: #e4e9e3;
+  --github-level-1: #9be9a8;
+  --github-level-2: #40c463;
+  --github-level-3: #30a14e;
+  --github-level-4: #216e39;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+html[data-theme='dark'] .github-activity {
+  --github-level-0: #243043;
+  --github-level-1: #0e4429;
+  --github-level-2: #006d32;
+  --github-level-3: #26a641;
+  --github-level-4: #39d353;
+}
+
+.github-activity-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.github-activity-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.github-activity-head svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.github-profile-link {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.github-profile-link:hover {
+  color: var(--primary);
+}
+
+.github-chart {
+  min-height: 120px;
+  margin-top: 12px;
+}
+
+.github-calendar-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.github-calendar-scroll:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.github-calendar {
+  display: block;
+  width: 100%;
+  min-width: 460px;
+}
+
+.github-calendar text {
+  fill: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.github-day {
+  fill: var(--github-level-0);
+  background: var(--github-level-0);
+}
+
+.github-day[data-level='1'] { fill: var(--github-level-1); background: var(--github-level-1); }
+.github-day[data-level='2'] { fill: var(--github-level-2); background: var(--github-level-2); }
+.github-day[data-level='3'] { fill: var(--github-level-3); background: var(--github-level-3); }
+.github-day[data-level='4'] { fill: var(--github-level-4); background: var(--github-level-4); }
+
+.github-calendar .github-day:hover {
+  stroke: var(--text);
+  stroke-width: 1;
+}
+
+.github-activity-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.github-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+}
+
+.github-legend .github-day {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+.github-legend-label { margin: 0 3px; }
+
+.github-status {
+  margin: 0;
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
 .intro-points {
   display: grid;
   margin-top: 26px;

@@ -55,6 +55,8 @@ const elements = {
   profileRole: document.getElementById('profile-role'),
   profileName: document.getElementById('profile-name'),
   profileDescription: document.getElementById('profile-description'),
+  githubProfileLink: document.getElementById('github-profile-link'),
+  githubChart: document.getElementById('github-chart'),
   overviewKicker: document.getElementById('overview-kicker'),
   overviewTitle: document.getElementById('overview-title'),
   overviewItems: document.getElementById('overview-items'),
@@ -112,6 +114,8 @@ let contactScrollY = 0;
 let contactSheetAnimation = null;
 let contactSheetClosing = false;
 let contactBackdropPointerDown = false;
+let githubContributions = null;
+let githubActivityFailed = false;
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => {
@@ -440,6 +444,97 @@ function startTyping(fullText, lang) {
   step();
 }
 
+function renderGitHubActivity() {
+  const t = translations[currentLang];
+  elements.githubProfileLink.setAttribute('aria-label', t.githubProfileLabel);
+  elements.githubChart.setAttribute(
+    'aria-busy',
+    String(!githubContributions && !githubActivityFailed),
+  );
+
+  if (!githubContributions) {
+    elements.githubChart.innerHTML = `<p class="github-status" role="status">${escapeHtml(githubActivityFailed ? t.githubError : t.githubLoading)}</p>`;
+    return;
+  }
+
+  const dateOptions = { timeZone: 'UTC' };
+  const monthFormat = new Intl.DateTimeFormat(currentLang, { ...dateOptions, month: 'short' });
+  const dayFormat = new Intl.DateTimeFormat(currentLang, { ...dateOptions, dateStyle: 'long' });
+  const firstDate = new Date(`${githubContributions[0].date}T00:00:00Z`);
+  const firstSunday = firstDate.getTime() - firstDate.getUTCDay() * 86400000;
+  const total = githubContributions.reduce((sum, day) => sum + day.count, 0);
+  const summary = t.githubSummary.replace('{count}', total.toLocaleString(currentLang));
+  const cells = [];
+  const months = [];
+  let previousMonth = '';
+  let lastMonthColumn = -4;
+  let lastColumn = 0;
+
+  githubContributions.forEach((day) => {
+    const date = new Date(`${day.date}T00:00:00Z`);
+    const column = Math.floor((date.getTime() - firstSunday) / (7 * 86400000));
+    const month = day.date.slice(0, 7);
+    // Leave enough room between month labels at either end of the year.
+    if (month !== previousMonth && column - lastMonthColumn >= 3 && column <= 49) {
+      months.push(`<text x="${column * 10}" y="10">${escapeHtml(monthFormat.format(date))}</text>`);
+      lastMonthColumn = column;
+    }
+    previousMonth = month;
+    lastColumn = column;
+    const label = t.githubDay
+      .replace('{date}', dayFormat.format(date))
+      .replace('{count}', day.count.toLocaleString(currentLang));
+    cells.push(`<rect class="github-day" data-level="${day.level}" x="${column * 10}" y="${18 + date.getUTCDay() * 10}" width="8" height="8" rx="2"><title>${escapeHtml(label)}</title></rect>`);
+  });
+
+  const legend = [0, 1, 2, 3, 4]
+    .map((level) => `<span class="github-day" data-level="${level}"></span>`)
+    .join('');
+  elements.githubChart.innerHTML = `
+    <div class="github-calendar-scroll" role="region" tabindex="0" aria-label="${escapeHtml(t.githubChartLabel)}">
+      <svg class="github-calendar" viewBox="-1 0 ${(lastColumn + 1) * 10} 88" role="img" aria-labelledby="github-calendar-description">
+        <title id="github-calendar-description">${escapeHtml(summary)}</title>
+        <g aria-hidden="true">${months.join('')}${cells.join('')}</g>
+      </svg>
+    </div>
+    <div class="github-activity-footer">
+      <span>${escapeHtml(summary)}</span>
+      <span class="github-legend" aria-hidden="true"><span class="github-legend-label">${escapeHtml(t.githubLess)}</span>${legend}<span class="github-legend-label">${escapeHtml(t.githubMore)}</span></span>
+    </div>`;
+
+  const scroll = elements.githubChart.querySelector('.github-calendar-scroll');
+  scroll.scrollLeft = scroll.scrollWidth;
+}
+
+async function loadGitHubActivity() {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 10000);
+
+  try {
+    // This public API exposes GitHub's contribution calendar with browser CORS support.
+    const response = await fetch('https://github-contributions-api.jogruber.de/v4/starrykss?y=last', {
+      signal: controller.signal,
+      credentials: 'omit',
+    });
+    if (!response.ok) throw new Error('GitHub activity is unavailable');
+    const data = await response.json();
+    if (!Array.isArray(data.contributions) || !data.contributions.length ||
+        !data.contributions.every((day) =>
+          /^\d{4}-\d{2}-\d{2}$/.test(day.date) &&
+          Number.isFinite(Date.parse(`${day.date}T00:00:00Z`)) &&
+          Number.isInteger(day.count) && day.count >= 0 &&
+          Number.isInteger(day.level) && day.level >= 0 && day.level <= 4)) {
+      throw new Error('Invalid GitHub activity');
+    }
+    githubContributions = [...data.contributions].sort((a, b) => a.date.localeCompare(b.date));
+  } catch {
+    githubActivityFailed = true;
+  } finally {
+    window.clearTimeout(timeout);
+    renderGitHubActivity();
+  }
+}
+
 function setLanguage(lang) {
   const t = translations[lang];
   currentLang = lang;
@@ -456,6 +551,7 @@ function setLanguage(lang) {
   elements.profileRole.textContent = t.profileRole;
   elements.profileName.textContent = t.profileName;
   elements.profileDescription.textContent = t.profileDescription;
+  renderGitHubActivity();
   elements.overviewKicker.textContent = t.overviewKicker;
   elements.overviewTitle.textContent = t.overviewTitle;
   buildOverview(t.overviewItems);
@@ -752,5 +848,6 @@ motionPreference.addEventListener?.('change', handleMotionPreferenceChange);
 
 applyTheme(currentTheme === 'dark' ? 'dark' : 'light');
 setLanguage(translations[currentLang] ? currentLang : 'ko');
+loadGitHubActivity();
 initializeScrollMotion();
 syncScrollInterface();
