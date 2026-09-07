@@ -359,10 +359,6 @@ function registerMotionTargets() {
     stagger: 36,
     maxDelay: 144,
   });
-  observeRevealGroup('.contact-item', {
-    stagger: 70,
-    maxDelay: 210,
-  });
 }
 
 function initializeScrollMotion() {
@@ -385,7 +381,8 @@ function initializeScrollMotion() {
     },
     {
       threshold: 0.1,
-      rootMargin: '0px 0px -6% 0px',
+      // Bottom-of-page content cannot scroll past an inset visibility boundary.
+      rootMargin: '0px',
     },
   );
 
