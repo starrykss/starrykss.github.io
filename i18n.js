@@ -15,7 +15,7 @@ export const translations = {
     heroActions: ['소개', '포트폴리오', '연락처'],
     quickFacts: [
       'React / Next.js 기반 프론트엔드 개발',
-      'TypeScript, Tailwind CSS, Python, Azure, Azure AI Foundry, Codex 경험',
+      'TypeScript, Tailwind CSS, Python, Azure, GCP, Codex 경험',
       '웹과 모바일에서 쓸 수 있는 앱 개발',
     ],
     aboutKicker: 'Profile',
@@ -39,10 +39,7 @@ export const translations = {
         'Primary',
         '웹과 모바일 환경에 맞는 화면을 설계하고 개발합니다.',
       ],
-      [
-        'Tooling',
-        'React, Next.js, React Native, Flutter, TypeScript, Tailwind CSS, Azure AI Foundry, Codex',
-      ],
+      ['Tooling'],
       [
         'Expansion',
         'React Native와 Flutter로 앱을 만들며 AI 개발 경험도 쌓고 있습니다.',
@@ -155,7 +152,7 @@ export const translations = {
     heroActions: ['About', 'Portfolio', 'Contact'],
     quickFacts: [
       'Frontend development with React and Next.js',
-      'Experience with TypeScript, Tailwind CSS, Python, Azure, Azure AI Foundry, and Codex',
+      'Experience with TypeScript, Tailwind CSS, Python, Azure, GCP, and Codex',
       'Independent static structure ready for GitHub Pages deployment',
     ],
     aboutKicker: 'Profile',
@@ -179,10 +176,7 @@ export const translations = {
         'Primary',
         'Cross-platform interface design and implementation across web and mobile',
       ],
-      [
-        'Tooling',
-        'React, Next.js, React Native, Flutter, TypeScript, Tailwind CSS, Azure AI Foundry, and Codex',
-      ],
+      ['Tooling'],
       [
         'Expansion',
         'Expanding into multi-device product work and AI-enabled development workflows',
@@ -295,7 +289,7 @@ export const translations = {
     heroActions: ['About', 'Portfolio', 'Kontakt'],
     quickFacts: [
       'Frontend-Entwicklung mit React und Next.js',
-      'Erfahrung mit TypeScript, Tailwind CSS, Python, Azure, Azure AI Foundry und Codex',
+      'Erfahrung mit TypeScript, Tailwind CSS, Python, Azure, GCP und Codex',
       'Unabhängige statische Struktur für GitHub Pages',
     ],
     aboutKicker: 'Profile',
@@ -319,10 +313,7 @@ export const translations = {
         'Primary',
         'Plattformübergreifendes Interface-Design und Umsetzung für Web und Mobile',
       ],
-      [
-        'Tooling',
-        'React, Next.js, React Native, Flutter, TypeScript, Tailwind CSS, Azure AI Foundry und Codex',
-      ],
+      ['Tooling'],
       [
         'Expansion',
         'Ausbau von Multi-Device-Produkten und AI-gestützten Entwicklungsabläufen',

@@ -832,6 +832,48 @@ html[data-theme='dark'] .github-activity {
   overflow-wrap: anywhere;
 }
 
+.tooling-badges {
+  display: flex;
+  grid-column: 2;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tooling-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 6px 11px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-chip);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tooling-badge-icon {
+  display: inline-flex;
+  flex: 0 0 26px;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.tooling-badge-icon .tech-icon-image {
+  width: 18px;
+  height: 18px;
+}
+
 .overview-icon {
   display: inline-flex;
   grid-row: 1 / span 2;
@@ -1129,6 +1171,7 @@ html[data-theme='dark'] .github-activity {
 }
 
 .tech-icon-image {
+  display: block;
   width: 30px;
   height: 30px;
   object-fit: contain;

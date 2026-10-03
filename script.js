@@ -1,4 +1,4 @@
-import { techStackItems, certificateItems, courseItems } from './data.js';
+import { techStackItems, toolingItems, certificateItems, courseItems } from './data.js';
 import { translations } from './i18n.js';
 
 const typedText = document.getElementById('typed-text');
@@ -132,13 +132,7 @@ function escapeHtml(value) {
 }
 
 function getTechIconMarkup(item) {
-  const fallback = escapeHtml(item.icon);
-
-  if (!item.iconUrl) {
-    return fallback;
-  }
-
-  return `<img class="tech-icon-image" src="${escapeHtml(item.iconUrl)}" alt="${escapeHtml(item.name)} icon" data-fallback="${fallback}" loading="lazy" decoding="async" />`;
+  return `<img class="tech-icon-image" src="${escapeHtml(item.iconUrl)}" alt="" aria-hidden="true" width="30" height="30" loading="lazy" decoding="async" />`;
 }
 
 function buildTechStack(mainLabel) {
@@ -151,7 +145,8 @@ function buildTechStack(mainLabel) {
       return b.proficiency - a.proficiency;
     }
 
-    return a.name.localeCompare(b.name);
+    return (a.sortAfter ?? a.name).localeCompare(b.sortAfter ?? b.name)
+      || a.name.localeCompare(b.name);
   });
 
   elements.techStackGrid.innerHTML = sortedTechStackItems
@@ -161,18 +156,6 @@ function buildTechStack(mainLabel) {
       return `<article class="tech-card"><div class="tech-icon">${getTechIconMarkup(item)}</div><div class="tech-body"><p class="tech-name">${escapeHtml(item.name)}</p><div class="skill-boxes">${Array.from({ length: filled }, () => '<span class="skill-box skill-box-filled"></span>').join('')}${Array.from({ length: empty }, () => '<span class="skill-box"></span>').join('')}</div></div>${item.isMain ? `<span class="main-ribbon">${escapeHtml(mainLabel)}</span>` : ''}</article>`;
     })
     .join('');
-
-  elements.techStackGrid
-    .querySelectorAll('.tech-icon-image')
-    .forEach((image) => {
-      image.addEventListener('error', () => {
-        const icon = image.closest('.tech-icon');
-
-        if (icon) {
-          icon.textContent = image.dataset.fallback || '';
-        }
-      });
-    });
 }
 
 function buildCertificates(lang) {
@@ -255,10 +238,13 @@ const overviewIcons = {
 
 function buildOverview(items) {
   elements.overviewItems.innerHTML = items
-    .map(
-      ([label, text]) =>
-        `<div class="overview-item"><span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${overviewIcons[label] ?? ''}</svg></span><h3 class="overview-title">${label}</h3><p class="overview-description">${text}</p></div>`,
-    )
+    .map(([label, text]) => {
+      const content = label === 'Tooling'
+        ? `<ul class="tooling-badges">${toolingItems.map((item) => `<li class="tooling-badge"><span class="tooling-badge-icon">${getTechIconMarkup(item)}</span><span>${escapeHtml(item.name)}</span></li>`).join('')}</ul>`
+        : `<p class="overview-description">${escapeHtml(text)}</p>`;
+
+      return `<div class="overview-item"><span class="overview-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false">${overviewIcons[label] ?? ''}</svg></span><h3 class="overview-title">${escapeHtml(label)}</h3>${content}</div>`;
+    })
     .join('');
 }
 
