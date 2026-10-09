@@ -11,7 +11,7 @@ export const translations = {
       'Completion',
       'Contact',
     ],
-    heroText: '안녕하세요!\n소프트웨어 개발자\n김상순입니다',
+    heroText: '안녕하세요!\n소프트웨어 엔지니어\n김상순입니다',
     heroActions: ['소개', '포트폴리오', '연락처'],
     quickFacts: [
       'React / Next.js 기반 프론트엔드 개발',
@@ -28,7 +28,7 @@ export const translations = {
     githubDay: '{date}: 기여 {count}회',
     githubLess: '적음',
     githubMore: '많음',
-    profileRole: 'Software Engineer',
+    profileRole: '소프트웨어 엔지니어',
     profileName: '김상순 · @starrykss',
     profileDescription:
       '프론트엔드뿐만 아니라 백엔드와 DevOps에도 관심이 많습니다. 새로운 기술을 배우고 서비스에 적용하는 걸 좋아합니다. 웹과 모바일에서 쓰기 편한 앱을 만들고, 더 빠르고 안정적으로 동작하도록 개선하고 있습니다.',
