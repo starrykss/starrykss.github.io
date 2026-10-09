@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
+      document.documentElement.classList.add('page-loading');
+      const loadingFallback = window.setTimeout(() => {
+        window.finishPageLoading();
+      }, 6000);
+      window.finishPageLoading = () => {
+        window.clearTimeout(loadingFallback);
+        document.documentElement.classList.remove('page-loading');
+      };
       // Restore the theme before styles or page content can paint.
       try {
         document.documentElement.dataset.theme =
@@ -22,6 +30,17 @@
         color-scheme: dark;
         background-color: #0d111a;
       }
+
+      .page-skeleton,
+      .page-loading-status {
+        display: none;
+      }
+
+      .page-loading .site-content,
+      .page-loading .floating-tools {
+        visibility: hidden;
+        opacity: 0;
+      }
     </style>
     <title>STARRYKSS</title>
     <meta
@@ -33,14 +52,50 @@
       type="image/png"
       href="./assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20261009-2" />
   </head>
   <body>
+    <p class="page-loading-status" role="status">페이지를 불러오는 중입니다.</p>
+    <div class="page-shell page-skeleton" aria-hidden="true">
+      <div class="topbar skeleton-nav">
+        <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+        <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+      </div>
+      <div class="content">
+        <div class="hero card card-accent">
+          <div class="hero-top-box">
+            <div class="hero-top">
+              <div class="hero-media"><span class="skeleton-avatar skeleton-fill"></span></div>
+              <div class="hero-copy">
+                <div class="hero-title skeleton-title">
+                  <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+                  <span class="skeleton-fill"></span>
+                </div>
+                <div class="hero-actions hero-actions-top skeleton-actions">
+                  <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+                  <span class="skeleton-fill"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-section">
+          <div class="card skeleton-detail">
+            <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+            <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+          </div>
+          <div class="card skeleton-detail">
+            <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+            <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="scroll-progress" aria-hidden="true">
       <span class="scroll-progress-bar" id="scroll-progress-bar"></span>
     </div>
 
-    <div class="page-shell">
+    <div class="page-shell site-content">
       <header class="topbar">
         <nav class="nav">
           <a href="#about">About</a>
@@ -473,6 +528,6 @@
       </div>
     </div>
 
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="./script.js?v=20261009-2" onerror="window.finishPageLoading()"></script>
   </body>
 </html>

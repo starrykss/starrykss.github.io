@@ -15,10 +15,6 @@ const topbar = document.querySelector('.topbar');
 const scrollProgressBar = document.getElementById('scroll-progress-bar');
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-if (!motionPreference.matches && 'IntersectionObserver' in window) {
-  root.classList.add('motion-ready');
-}
-
 const moonIcon = `
   <svg viewBox="0 0 24 24" focusable="false">
     <path
@@ -116,6 +112,7 @@ let contactSheetClosing = false;
 let contactBackdropPointerDown = false;
 let githubContributions = null;
 let githubActivityFailed = false;
+const certificateElementCache = new WeakMap();
 
 function getStoredPreference(key, fallback) {
   try {
@@ -178,9 +175,32 @@ function buildCertificates(lang) {
   elements.certGrid.innerHTML = certificateItems
     .map(
       (item) =>
-        `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date"><span class="certificate-issued-date-icon">${calendarIcon}</span><span>${item.issueDate}</span></span><div class="certificate-image-wrap"><img class="certificate-image" src="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
+        `<a class="certificate-card" href="${item.url}" target="_blank" rel="noreferrer"><span class="certificate-issued-date"><span class="certificate-issued-date-icon">${calendarIcon}</span><span>${item.issueDate}</span></span><div class="certificate-image-wrap"><img class="certificate-image certificate-image-light" src="${item.image}" alt="${item.title[lang]}" /><img class="certificate-image certificate-image-dark" src="${item.image.replace('/certificate/', '/certificate/dark/')}" data-source="${item.image}" alt="${item.title[lang]}" /></div><div class="certificate-body"><div class="certificate-heading"><span class="certificate-title-local">${item.title[lang]}</span><span class="certificate-issuer">${item.issuer}</span></div></div></a>`,
     )
     .join('');
+  prepareCertificateImages();
+}
+
+function prepareCertificateImages() {
+  return Promise.allSettled(
+    [...document.querySelectorAll('.certificate-image-dark')].map((image) => {
+      if (!certificateElementCache.has(image)) {
+        certificateElementCache.set(image, new Promise((resolve) => {
+          const finish = () => {
+            image.classList.add('is-ready');
+            resolve();
+          };
+          if (image.complete) {
+            finish();
+          } else {
+            image.addEventListener('load', finish, { once: true });
+            image.addEventListener('error', finish, { once: true });
+          }
+        }));
+      }
+      return certificateElementCache.get(image);
+    }),
+  );
 }
 
 function setCertificateView(view) {
@@ -307,9 +327,13 @@ function buildTimeline(items, labels) {
 function observeRevealTarget(target, direction = 'up', delay = 0) {
   if (!target || !revealObserver || observedRevealTargets.has(target)) return;
 
+  observedRevealTargets.add(target);
+  const bounds = target.getBoundingClientRect();
+  // Content already on screen shares the page fade and must never be re-hidden.
+  if (bounds.top < window.innerHeight && bounds.bottom > 0) return;
+
   target.dataset.reveal = direction;
   target.style.setProperty('--reveal-delay', `${delay}ms`);
-  observedRevealTargets.add(target);
   revealObserver.observe(target);
 }
 
@@ -327,13 +351,11 @@ function observeRevealGroup(
 }
 
 function registerMotionTargets() {
-  observeRevealTarget(document.querySelector('.hero-top-box'), 'up', 40);
-
   document.querySelectorAll('#about > .card').forEach((target, index) => {
     observeRevealTarget(target, index === 0 ? 'left' : 'right', index * 90);
   });
 
-  observeRevealGroup('.content > .card:not(.hero)', {
+  observeRevealGroup('.site-content .content > .card:not(.hero) > .section-head', {
     stagger: 0,
   });
 
@@ -341,10 +363,6 @@ function registerMotionTargets() {
     observeRevealTarget(target, index === 0 ? 'left' : 'right', index * 90);
   });
 
-  observeRevealGroup('.intro-points > div', {
-    stagger: 70,
-    maxDelay: 210,
-  });
   observeRevealGroup('.timeline-item', {
     stagger: 70,
     maxDelay: 280,
@@ -382,9 +400,9 @@ function initializeScrollMotion() {
       });
     },
     {
-      threshold: 0.1,
-      // Bottom-of-page content cannot scroll past an inset visibility boundary.
-      rootMargin: '0px',
+      threshold: 0.01,
+      // Begin a gentle fade just before content enters the viewport.
+      rootMargin: '0px 0px 72px 0px',
     },
   );
 
@@ -617,7 +635,7 @@ function setLanguage(lang) {
   startTyping(t.heroText, lang);
 
   if (revealObserver) {
-    window.requestAnimationFrame(registerMotionTargets);
+    registerMotionTargets();
   }
 }
 
@@ -850,3 +868,21 @@ setLanguage(translations[currentLang] ? currentLang : 'ko');
 loadGitHubActivity();
 initializeScrollMotion();
 syncScrollInterface();
+
+async function revealPage() {
+  // Settle the hero image and font before showing the completed layout.
+  const avatar = document.querySelector('.site-content .avatar');
+  await Promise.race([
+    Promise.allSettled([
+      document.fonts?.load('700 1em Pretendard'),
+      avatar?.decode(),
+      prepareCertificateImages(),
+    ]),
+    new Promise((resolve) => window.setTimeout(resolve, 800)),
+  ]);
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => window.finishPageLoading?.());
+  });
+}
+
+revealPage();
