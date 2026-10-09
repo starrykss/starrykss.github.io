@@ -104,9 +104,9 @@ const elements = {
   contactFormStatus: document.getElementById('contact-form-status'),
 };
 
-let currentLang = localStorage.getItem('github-home-lang') || 'ko';
+let currentLang = getStoredPreference('github-home-lang', 'ko');
 let typingToken = 0;
-let currentTheme = localStorage.getItem('github-home-theme') || 'light';
+let currentTheme = root.dataset.theme === 'dark' ? 'dark' : 'light';
 let revealObserver = null;
 let observedRevealTargets = new WeakSet();
 let scrollUpdateQueued = false;
@@ -116,6 +116,22 @@ let contactSheetClosing = false;
 let contactBackdropPointerDown = false;
 let githubContributions = null;
 let githubActivityFailed = false;
+
+function getStoredPreference(key, fallback) {
+  try {
+    return localStorage.getItem(key) || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function storePreference(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Theme and language controls still work without persistent storage.
+  }
+}
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (character) => {
@@ -597,7 +613,7 @@ function setLanguage(lang) {
   if (floatingLanguage) {
     floatingLanguage.classList.remove('is-open');
   }
-  localStorage.setItem('github-home-lang', lang);
+  storePreference('github-home-lang', lang);
   startTyping(t.heroText, lang);
 
   if (revealObserver) {
@@ -617,7 +633,7 @@ function applyTheme(theme) {
       theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
     );
   }
-  localStorage.setItem('github-home-theme', theme);
+  storePreference('github-home-theme', theme);
 }
 
 function syncTopbarState() {

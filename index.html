@@ -1,8 +1,28 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Restore the theme before styles or page content can paint.
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem('github-home-theme') === 'dark' ? 'dark' : 'light';
+      } catch {
+        // Keep the default light theme when browser storage is unavailable.
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        background-color: #d9e2d7;
+      }
+
+      :root[data-theme='dark'] {
+        color-scheme: dark;
+        background-color: #0d111a;
+      }
+    </style>
     <title>STARRYKSS</title>
     <meta
       name="description"
