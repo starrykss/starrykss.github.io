@@ -31,7 +31,7 @@ export const translations = {
     profileRole: '소프트웨어 엔지니어',
     profileName: '김상순 · @starrykss',
     profileDescription:
-      '새로운 것을 배우고 직접 만들어 보는 걸 좋아합니다. 프론트엔드, 백엔드, 모바일, AI, 인프라까지 분야를 가리지 않고 공부하며 개발 경험을 쌓고 있습니다.',
+      '호기심이 많아 새로운 것을 배우고 직접 시도하는 걸 좋아합니다. 떠오른 아이디어로 색다른 것을 만드는 일도 즐깁니다. 프론트엔드, 백엔드, 모바일, AI, 인프라까지 분야를 가리지 않고 공부하며 개발 경험을 쌓고 있습니다.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
@@ -169,7 +169,7 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'I enjoy learning new things and trying them out. I explore different areas of development, including frontend, backend, mobile, AI, and infrastructure.',
+      'I’m curious and enjoy learning new things and trying them out. I like turning my ideas into something creative. I explore different areas of development, including frontend, backend, mobile, AI, and infrastructure.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
@@ -307,7 +307,7 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'Ich lerne gerne Neues und probiere es selbst aus. Dabei beschäftige ich mich mit verschiedenen Bereichen der Softwareentwicklung, vom Frontend und Backend über mobile Apps bis hin zu KI und Infrastruktur.',
+      'Ich bin neugierig, lerne gerne Neues und probiere es selbst aus. Außerdem macht es mir Spaß, eigene Ideen umzusetzen und etwas Kreatives zu schaffen. Dabei beschäftige ich mich mit verschiedenen Bereichen der Softwareentwicklung, vom Frontend und Backend über mobile Apps bis hin zu KI und Infrastruktur.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [

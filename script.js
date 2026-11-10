@@ -1,5 +1,5 @@
 import { techStackItems, toolingItems, certificateItems, courseItems } from './data.js?v=20261110-2';
-import { translations } from './i18n.js?v=20261110-2';
+import { translations } from './i18n.js?v=20261110-3';
 
 const typedText = document.getElementById('typed-text');
 const cursor = document.getElementById('cursor');
