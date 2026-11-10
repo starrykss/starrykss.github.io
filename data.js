@@ -296,7 +296,7 @@ export const courseItems = [
     period: '2025.02.01 - 2026.01.21',
     completedDate: '2026.01.21',
     description: {
-      ko: '약 29시간 동안 React Native로 크로스 플랫폼 앱을 만드는 방법과 화면 구성, 상태 관리, 네이티브 기능 연동을 배웠습니다.',
+      ko: '약 29시간 동안 React Native로 여러 플랫폼에서 동작하는 앱을 만드는 법을 배웠습니다. 화면 구성과 상태 관리, 네이티브 기능 연동도 함께 익혔습니다.',
       en: 'A 29-hour course focused on cross-platform mobile app development with React Native, including UI composition, state management, and native integration.',
       de: 'Ein 29-stündiger Kurs zu plattformübergreifender mobiler App-Entwicklung mit React Native, einschließlich UI-Aufbau, State-Management und nativer Integration.',
     },
@@ -312,7 +312,7 @@ export const courseItems = [
     period: '2026.01.11 - 2026.03.23',
     completedDate: '2026.03.23',
     description: {
-      ko: '약 30시간 동안 Flutter와 Dart로 여러 플랫폼에서 동작하는 앱의 구조를 배웠습니다. 위젯을 이용한 화면 구성, 상태 관리, 앱 실행 과정도 익혔습니다.',
+      ko: '약 30시간 동안 Flutter와 Dart로 여러 플랫폼에서 동작하는 앱의 구조를 배웠습니다. 위젯으로 화면을 만들고 상태를 관리하는 방법, 앱이 실행되는 과정도 익혔습니다.',
       en: 'A 30-hour course covering Flutter and Dart for multi-platform app structure, widget-based UI design, state management, and application flow.',
       de: 'Ein 30-stündiger Kurs zu Flutter und Dart mit Fokus auf Multi-Plattform-App-Struktur, widgetbasiertes UI-Design, State-Management und App-Ablauf.',
     },
@@ -360,7 +360,7 @@ export const courseItems = [
     period: '2026.06.18 - 2026.09.06',
     completedDate: '2026.09.06',
     description: {
-      ko: '약 29시간 동안 Dart 문법·객체지향 프로그래밍·비동기 처리와 Flutter 위젯, Provider 상태 관리, 애니메이션, API·Firebase 연동, 사용자 인증을 배웠습니다.',
+      ko: '약 29시간 동안 Dart 문법과 객체지향 프로그래밍, 비동기 처리를 공부했습니다. Flutter 위젯, Provider 상태 관리, 애니메이션, API·Firebase 연동, 사용자 인증도 배웠습니다.',
       en: 'An approximately 29-hour course covering Dart syntax, OOP, and asynchronous programming, plus Flutter widget-based UI, Provider state management, animations, API and Firebase integration, and user authentication.',
       de: 'Ein etwa 29-stündiger Kurs zu Dart-Syntax, OOP und asynchroner Programmierung sowie Flutter-Widget-UIs, Zustandsverwaltung mit Provider, Animationen, API- und Firebase-Integration und Benutzerauthentifizierung.',
     },
@@ -408,7 +408,7 @@ export const courseItems = [
     period: '2021.07.15 - 2021.09.01',
     completedDate: '2021.09.01',
     description: {
-      ko: '네이버 부스트코스에서 Python for Everyone 강의와 현업 개발자의 실시간 강의를 듣고, 코치의 피드백을 받으며 팀 과제를 수행했습니다.',
+      ko: '네이버 부스트코스에서 Python for Everyone 강의와 현업 개발자의 실시간 강의를 들었습니다. 팀 과제를 진행하며 코치에게 피드백을 받았습니다.',
       en: 'An on-tact bootcamp by Naver Boostcourse combining Python for Everyone lectures, team missions, coaching feedback, and live developer sessions.',
       de: 'Ein Online-Bootcamp von Naver Boostcourse mit Python-for-Everyone-Lektionen, Team-Missionen, Coach-Feedback und Live-Sessions von Entwicklern.',
     },

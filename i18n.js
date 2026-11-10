@@ -1,7 +1,7 @@
 export const translations = {
   ko: {
     metaDescription:
-      '웹과 모바일 서비스를 개발하는 김상순의 포트폴리오입니다.',
+      '새로운 것을 배우고 직접 만들어 보는 소프트웨어 엔지니어 김상순의 포트폴리오입니다.',
     brand: 'STARRYKSS',
     nav: [
       'About',
@@ -31,18 +31,18 @@ export const translations = {
     profileRole: '소프트웨어 엔지니어',
     profileName: '김상순 · @starrykss',
     profileDescription:
-      '프론트엔드뿐만 아니라 백엔드와 DevOps에도 관심이 많습니다. 새로운 기술을 배우고 서비스에 적용하는 걸 좋아합니다. 웹과 모바일에서 쓰기 편한 앱을 만들고, 더 빠르고 안정적으로 동작하도록 개선하고 있습니다.',
+      '새로운 것을 배우고 직접 만들어 보는 걸 좋아합니다. 프론트엔드, 백엔드, 모바일, AI, 인프라까지 분야를 가리지 않고 공부하며 개발 경험을 쌓고 있습니다.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
       [
         'Primary',
-        '웹과 모바일 환경에 맞는 화면을 설계하고 개발합니다.',
+        '주로 React와 Next.js로 웹을 만들고 React Native와 Flutter로 앱을 개발합니다.',
       ],
       ['Tooling'],
       [
         'Expansion',
-        'React Native와 Flutter로 앱을 만들며 AI 개발 경험도 쌓고 있습니다.',
+        '백엔드, AI, 인프라도 직접 다뤄 보면서 하나씩 익히고 있습니다.',
       ],
     ],
     experienceKicker: 'Timeline',
@@ -96,7 +96,7 @@ export const translations = {
     blogKicker: 'Section',
     blogTitle: 'Post',
     blogDescription:
-      '공부한 내용과 개발하면서 겪은 일, 프로젝트 회고를 기록합니다.',
+      '공부한 내용과 개발하면서 겪은 일, 프로젝트를 마치며 든 생각을 기록합니다.',
     blogLinkLabel: '블로그',
     studyLogLinkLabel: '기술 블로그',
     certIssueNumber: '자격번호',
@@ -104,11 +104,11 @@ export const translations = {
     highlights: [
       'Section',
       'Portfolio',
-      '직접 만든 프로젝트와 작업 내용을 정리했습니다.',
+      '직접 만든 프로젝트를 모았습니다. 코드는 GitHub에서 볼 수 있습니다.',
       'GitHub에서 보기',
       'Section',
       'Post',
-      '공부한 내용과 개발하면서 겪은 일, 프로젝트 회고를 기록합니다.',
+      '공부한 내용과 개발하면서 겪은 일, 프로젝트를 마치며 든 생각을 기록합니다.',
       '블로그',
     ],
     contactKicker: 'Get In Touch',
@@ -123,7 +123,8 @@ export const translations = {
     contactOpenLabel: '문의하기',
     contactCloseLabel: '문의 창 닫기',
     contactFormTitle: '문의하기',
-    contactFormDescription: '궁금한 점이 있다면 편하게 연락해 주세요.',
+    contactFormDescription:
+      '궁금한 점이나 나누고 싶은 이야기를 적어 주세요. 작성한 내용은 메일 앱에서 확인한 뒤 보내면 됩니다.',
     contactEmailLabel: '이메일',
     contactEmailPlaceholder: '답변을 받을 이메일 주소',
     contactSubjectLabel: '제목',
@@ -138,7 +139,7 @@ export const translations = {
   },
   en: {
     metaDescription:
-      'GitHub Pages portfolio homepage for Software Engineer Sangsun Kim',
+      'Sangsun Kim’s portfolio. A software engineer who enjoys learning new things and building with them.',
     brand: 'STARRYKSS',
     nav: [
       'About',
@@ -148,12 +149,12 @@ export const translations = {
       'Completion',
       'Contact',
     ],
-    heroText: 'Hey, There!\nI am SW Engineer\nSangsun Kim',
+    heroText: 'Hello!\nSoftware Engineer\nSangsun Kim',
     heroActions: ['About', 'Portfolio', 'Contact'],
     quickFacts: [
       'Frontend development with React and Next.js',
       'Experience with TypeScript, Tailwind CSS, Python, Azure, GCP, and Codex',
-      'Independent static structure ready for GitHub Pages deployment',
+      'Building apps for web and mobile',
     ],
     aboutKicker: 'Profile',
     aboutTitle: 'About Me',
@@ -168,18 +169,18 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'I am interested in designing and building products end to end, looking beyond the frontend to the backend and DevOps. I enjoy learning new technologies and care about taking software beyond “it works” by making it faster, more stable, and easier to maintain. I build cross-platform applications that can be genuinely useful in people’s everyday lives.',
+      'I enjoy learning new things and trying them out. I explore different areas of development, including frontend, backend, mobile, AI, and infrastructure.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
       [
         'Primary',
-        'Cross-platform interface design and implementation across web and mobile',
+        'I mainly build websites with React and Next.js, and mobile apps with React Native and Flutter.',
       ],
       ['Tooling'],
       [
         'Expansion',
-        'Expanding into multi-device product work and AI-enabled development workflows',
+        'I also study backend development, AI, and infrastructure, trying things out as I learn.',
       ],
     ],
     experienceKicker: 'Timeline',
@@ -229,11 +230,11 @@ export const translations = {
     certViewList: 'List view',
     courseKicker: 'Courses',
     courseTitle: 'Completion',
-    courseEmpty: 'This is a ready section for completed courses such as Udemy.',
+    courseEmpty: 'No completed courses listed yet.',
     blogKicker: 'Section',
     blogTitle: 'Post',
     blogDescription:
-      'A space where I organize new learnings, study notes, and retrospectives from development.',
+      'I write about what I learn, what happens while I build, and my thoughts after finishing a project.',
     blogLinkLabel: 'Blog',
     studyLogLinkLabel: 'Tech Blog',
     certIssueNumber: 'Issue Number',
@@ -241,11 +242,11 @@ export const translations = {
     highlights: [
       'Section',
       'Portfolio',
-      'A space where I organize projects I have built while developing.',
-      'Open Repository',
+      'A collection of projects I’ve built. You can find the code on GitHub.',
+      'View on GitHub',
       'Section',
       'Post',
-      'A space where I organize new learnings, study notes, and retrospectives from development.',
+      'I write about what I learn, what happens while I build, and my thoughts after finishing a project.',
       'Blog',
     ],
     contactKicker: 'Get In Touch',
@@ -260,14 +261,15 @@ export const translations = {
     contactFormTitle: 'Contact',
     contactOpenLabel: 'Get in touch',
     contactCloseLabel: 'Close contact form',
-    contactFormDescription: 'Feel free to reach out anytime!',
+    contactFormDescription:
+      'Write your question or message here, then review and send it in your mail app.',
     contactEmailLabel: 'Email',
-    contactEmailPlaceholder: 'Your reply email',
+    contactEmailPlaceholder: 'Your email address',
     contactSubjectLabel: 'Subject',
     contactSubjectPlaceholder: 'What would you like to discuss?',
     contactMessageLabel: 'Message',
     contactMessagePlaceholder: 'Write your message',
-    contactSubmitLabel: 'Send',
+    contactSubmitLabel: 'Open mail app',
     contactFormStatus:
       'Your mail app has been opened. Review the message and send it when ready.',
     contactMailSenderLabel: 'Reply email',
@@ -275,7 +277,7 @@ export const translations = {
   },
   de: {
     metaDescription:
-      'GitHub-Pages-Portfolioseite für Software Engineer Sangsun Kim',
+      'Das Portfolio von Sangsun Kim. Ein Software Engineer, der gerne Neues lernt und selbst ausprobiert.',
     brand: 'STARRYKSS',
     nav: [
       'About',
@@ -285,12 +287,12 @@ export const translations = {
       'Completion',
       'Contact',
     ],
-    heroText: 'Hallo!\nIch bin SW Engineer\nSangsun Kim',
+    heroText: 'Hallo!\nSoftware Engineer\nSangsun Kim',
     heroActions: ['About', 'Portfolio', 'Kontakt'],
     quickFacts: [
       'Frontend-Entwicklung mit React und Next.js',
       'Erfahrung mit TypeScript, Tailwind CSS, Python, Azure, GCP und Codex',
-      'Unabhängige statische Struktur für GitHub Pages',
+      'Entwicklung von Apps für Web und Mobilgeräte',
     ],
     aboutKicker: 'Profile',
     aboutTitle: 'About Me',
@@ -305,18 +307,18 @@ export const translations = {
     profileRole: 'Software Engineer',
     profileName: 'Sangsun Kim · @starrykss',
     profileDescription:
-      'Ich interessiere mich dafür, Produkte ganzheitlich zu konzipieren und zu entwickeln – vom Frontend über das Backend bis hin zu DevOps. Ich lerne gern neue Technologien und gebe mich nicht damit zufrieden, dass Software nur funktioniert, sondern achte auch auf Performance, Stabilität und Wartbarkeit. Dabei entwickle ich plattformübergreifende Anwendungen, die Menschen im Alltag wirklich weiterhelfen.',
+      'Ich lerne gerne Neues und probiere es selbst aus. Dabei beschäftige ich mich mit verschiedenen Bereichen der Softwareentwicklung, vom Frontend und Backend über mobile Apps bis hin zu KI und Infrastruktur.',
     overviewKicker: 'Overview',
     overviewTitle: 'Current Focus',
     overviewItems: [
       [
         'Primary',
-        'Plattformübergreifendes Interface-Design und Umsetzung für Web und Mobile',
+        'Ich entwickle vor allem Websites mit React und Next.js sowie mobile Apps mit React Native und Flutter.',
       ],
       ['Tooling'],
       [
         'Expansion',
-        'Ausbau von Multi-Device-Produkten und AI-gestützten Entwicklungsabläufen',
+        'Ich beschäftige mich auch mit Backend-Entwicklung, KI und Infrastruktur und probiere beim Lernen vieles selbst aus.',
       ],
     ],
     experienceKicker: 'Timeline',
@@ -367,11 +369,11 @@ export const translations = {
     courseKicker: 'Courses',
     courseTitle: 'Completion',
     courseEmpty:
-      'Dies ist ein vorbereiteter Bereich für abgeschlossene Kurse wie Udemy.',
+      'Noch keine abgeschlossenen Kurse eingetragen.',
     blogKicker: 'Section',
     blogTitle: 'Post',
     blogDescription:
-      'Ein Bereich, in dem ich neue Erkenntnisse, Lernnotizen und Retrospektiven aus der Entwicklung sammle.',
+      'Ich schreibe darüber, was ich lerne, was mir beim Entwickeln begegnet und wie ich auf abgeschlossene Projekte zurückblicke.',
     blogLinkLabel: 'Blog',
     studyLogLinkLabel: 'Technikblog',
     certIssueNumber: 'Nummer',
@@ -379,11 +381,11 @@ export const translations = {
     highlights: [
       'Section',
       'Portfolio',
-      'Ein Bereich, in dem ich Projekte sammle, die ich beim Entwickeln gebaut habe.',
-      'Repository öffnen',
+      'Hier findest du meine Projekte. Der Code ist auf GitHub verfügbar.',
+      'Auf GitHub ansehen',
       'Section',
       'Post',
-      'Ein Bereich, in dem ich neue Erkenntnisse, Lernnotizen und Retrospektiven aus der Entwicklung sammle.',
+      'Ich schreibe darüber, was ich lerne, was mir beim Entwickeln begegnet und wie ich auf abgeschlossene Projekte zurückblicke.',
       'Blog',
     ],
     contactKicker: 'Get In Touch',
@@ -398,14 +400,15 @@ export const translations = {
     contactFormTitle: 'Kontakt',
     contactOpenLabel: 'Kontakt aufnehmen',
     contactCloseLabel: 'Kontaktformular schließen',
-    contactFormDescription: 'Melde dich jederzeit gerne!',
+    contactFormDescription:
+      'Schreib hier deine Frage oder Nachricht. Anschließend kannst du sie in deiner E-Mail-App prüfen und senden.',
     contactEmailLabel: 'E-Mail',
-    contactEmailPlaceholder: 'Deine E-Mail für die Antwort',
+    contactEmailPlaceholder: 'Deine E-Mail-Adresse',
     contactSubjectLabel: 'Betreff',
     contactSubjectPlaceholder: 'Worum geht es?',
     contactMessageLabel: 'Nachricht',
     contactMessagePlaceholder: 'Schreibe deine Nachricht',
-    contactSubmitLabel: 'Senden',
+    contactSubmitLabel: 'E-Mail-App öffnen',
     contactFormStatus:
       'Die Mail-App wurde geöffnet. Bitte prüfe die Nachricht und sende sie ab.',
     contactMailSenderLabel: 'Antwort-E-Mail',
