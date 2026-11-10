@@ -469,8 +469,29 @@ function renderGitHubActivity() {
     String(!githubContributions && !githubActivityFailed),
   );
 
+  if (githubActivityFailed) {
+    elements.githubChart.innerHTML = `<p class="github-status" role="status">${escapeHtml(t.githubError)}</p>`;
+    return;
+  }
+
   if (!githubContributions) {
-    elements.githubChart.innerHTML = `<p class="github-status" role="status">${escapeHtml(githubActivityFailed ? t.githubError : t.githubLoading)}</p>`;
+    const months = Array.from({ length: 12 }, (_, index) =>
+      `<rect x="${index * 44}" y="2" width="16" height="6" rx="2" />`,
+    ).join('');
+    const cells = Array.from({ length: 53 * 7 }, (_, index) =>
+      `<rect x="${Math.floor(index / 7) * 10}" y="${18 + (index % 7) * 10}" width="8" height="8" rx="2" />`,
+    ).join('');
+
+    elements.githubChart.innerHTML = `
+      <p class="visually-hidden" role="status">${escapeHtml(t.githubLoading)}</p>
+      <div class="github-skeleton" aria-hidden="true">
+        <div class="github-calendar-scroll">
+          <svg class="github-calendar" viewBox="-1 0 530 88" focusable="false">${months}${cells}</svg>
+        </div>
+        <div class="github-activity-footer">
+          <span class="skeleton-fill"></span><span class="skeleton-fill"></span>
+        </div>
+      </div>`;
     return;
   }
 

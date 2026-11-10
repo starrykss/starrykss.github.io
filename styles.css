@@ -310,8 +310,9 @@ img { display: block; max-width: 100%; }
   transition: none;
 }
 
-.page-loading .page-loading-status {
-  position: fixed;
+.page-loading .page-loading-status,
+.visually-hidden {
+  position: absolute;
   display: block;
   width: 1px;
   height: 1px;
@@ -326,7 +327,8 @@ img { display: block; max-width: 100%; }
   background: var(--line);
 }
 
-.page-loading .skeleton-fill {
+.page-loading .skeleton-fill,
+.github-skeleton {
   animation: skeleton-pulse 1400ms ease-in-out infinite alternate;
 }
 
@@ -809,6 +811,22 @@ html[data-theme='dark'] .github-activity {
 .github-chart {
   min-height: 120px;
   margin-top: 12px;
+}
+
+.github-skeleton rect {
+  fill: var(--line);
+}
+
+.github-skeleton .skeleton-fill {
+  width: 46%;
+  max-width: 150px;
+  height: 1.5em;
+  border-radius: 4px;
+}
+
+.github-skeleton .skeleton-fill:last-child {
+  width: 32%;
+  max-width: 120px;
 }
 
 .github-calendar-scroll {
